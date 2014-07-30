@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercices d'apnée</title>
+
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-route.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+
+    <!-- Angular UI Bootstrap -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-0.9.0.min.js"></script>
+
+<!-- Application -->
+
+<script>
+//<!--data
+var data={"templates": {"detail/statique-echauffement-O2.html": "<div>\n<h2>Statique - \u00e9chauffement hypoxique <span class=\"label label-default\" \n       tooltip=\"Pr\u00e9paration\" >\n  Prep\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e statique\" >\n  STA\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Hypoxique\" >\n  O2\n</span>\n</h2><h3>Objectifs</h3>\n<p>\u00c9chauffement, pr\u00e9paration d'une apn\u00e9e longue. Adapt\u00e9 pour les apn\u00e9istes\nn\u00e9cessitant un \u00e9chauffement long.</p>\n<h3>Consignes</h3>\n<p>S\u00e9rie d'apn\u00e9es de dur\u00e9es croissantes :</p>\n<ul>\n<li>1', r\u00e9cup 1'</li>\n<li>1'30\", r\u00e9cup 1'30</li>\n<li>2', r\u00e9cup 2'</li>\n<li>...</li>\n<li>70-80%max</li>\n</ul></div>\n", "detail/decouplage.html": "<div>\n<h2>D\u00e9couplage sensations / r\u00e9actions <span class=\"label label-default\" \n       tooltip=\"Gestion du manque d'air\" >\n  MA\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e dynamique sans palmes\" >\n  DNF\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Hypercapnique\" >\n  CO2\n</span>\n</h2><h3>Objectifs</h3>\n<p>\u00c9viter de surr\u00e9agir lorsqu'on se d\u00e9pense (mouvements rapides) mais que la\nvitesse est moindre qu'attendue (on ne voit quasiment pas bouger les carreaux).</p>\n<h3>Consignes</h3>\n<p>S\u00e9rie de distances courtes (ex: 12.5m) sans palmes, 10x :</p>\n<ul>\n<li>pouss\u00e9e contre le mur</li>\n<li>battements pour finir la distance</li>\n</ul>\n<h4>Variantes</h4>\n<ul>\n<li>\n<p>ondulations</p>\n</li>\n<li>\n<p>s\u00e9rie d'apn\u00e9es avec nombre d\u00e9croissant de cycle ventilatoires en r\u00e9cup. Ex:</p>\n<ul>\n<li>apn\u00e9e</li>\n<li>r\u00e9cup 5 cycles</li>\n<li>apn\u00e9e</li>\n<li>r\u00e9cup 4 cycles</li>\n<li>...</li>\n<li>apn\u00e9e</li>\n<li>r\u00e9cup 1 cycle</li>\n<li>apn\u00e9e</li>\n</ul>\n</li>\n</ul></div>\n", "detail/statique-simulateur-sablier.html": "<div>\n<h2>Statique - simulateur sablier <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e statique\" >\n  STA\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Hypoxique\" >\n  O2\n</span>\n</h2><h3>Objectifs</h3>\n<p>Simuler une dur\u00e9e d'apn\u00e9e plus longue que le maximum d\u00e9j\u00e0 atteint. Se\nfamiliariser avec les sensations intervenant dans ce genre d'apn\u00e9e.</p>\n<h3>Consignes</h3>\n<p>R\u00e9aliser deux apn\u00e9es cons\u00e9cutives totalisant une dur\u00e9e cible \u00e0 atteindre\n(sup\u00e9rieure au max). La r\u00e9cup\u00e9ration est courte.</p>\n<p>Exemple : r\u00e9cup\u00e9ration 4'</p>\n<ul>\n<li>70%cible, r\u00e9cup 10\", 30%cible</li>\n<li>60%cible, r\u00e9cup 10\", 40%cible</li>\n<li>50%cible, r\u00e9cup 10\", 50%cible</li>\n<li>...</li>\n<li>30%cible, r\u00e9cup 10\", 70%cible</li>\n</ul>\n<h3>S\u00e9curit\u00e9</h3>\n<p>Bin\u00f4me : 1 dans l'eau, l'autre hors de l'eau en r\u00e9cup\u00e9ration.</p></div>\n", "detail/statique-course.html": "<div>\n<h2>Statique - course <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e statique\" >\n  STA\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Hypercapnique\" >\n  CO2\n</span>\n</h2><h3>Objectifs</h3>\n<h3>Consignes</h3>\n<p>R\u00e9aliser une s\u00e9rie d'apn\u00e9es totalisant une certaine dur\u00e9e fix\u00e9e \u00e0 l'avance (ex:\n15'). Chaque apn\u00e9iste g\u00e8re ses apn\u00e9es : le chrono tourne uniquement lorsque la\nt\u00eate est sous l'eau.</p>\n<p>Le premier qui atteint l'objectif \"gagne\".</p>\n<h3>S\u00e9curit\u00e9</h3>\n<p>Pas d'apn\u00e9e plus longue que 50%max.</p></div>\n", "detail/statique-dynamique.html": "<div>\n<h2>Statique - dynamique <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e dynamique\" >\n  DYN\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Hypoxique\" >\n  O2\n</span>\n</h2><h3>Objectifs</h3>\n<ul>\n<li>\n<p>B\u00e9n\u00e9ficier de la relaxation de l'apn\u00e9e statique dans un contexte dynamique.</p>\n</li>\n<li>\n<p>S'habituer \u00e0 r\u00e9aliser des apn\u00e9es dynamiques longues.</p>\n</li>\n</ul>\n<h3>Consignes</h3>\n<p>R\u00e9aliser une apn\u00e9e statique, puis partir pour une longueur dynamique sans\nreventiler.</p>\n<p>Exemple :</p>\n<ul>\n<li>30\" statique</li>\n<li>25m dynamique</li>\n</ul>\n<h4>Variante 1 : dynamique - statique - dynamique</h4>\n<p>Utiliser des ventouses pour rester au fond durant la phase statique (\u00e9vite de\ndevoir refaire un canard).</p>\n<p>Exemple :</p>\n<ul>\n<li>12.5m</li>\n<li>30\"</li>\n<li>12.5m</li>\n</ul>\n<h4>Variante 2 : dynamique - statique</h4>\n<p>Exemple</p>\n<ul>\n<li>25m</li>\n<li>30\"</li>\n</ul></div>\n", "detail/statique-pyramide-recup.html": "<div>\n<h2>Statique - pyramide sur la r\u00e9cup\u00e9ration <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e statique\" >\n  STA\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Hypercapnique\" >\n  CO2\n</span>\n</h2><h3>Objectifs</h3>\n<h3>Consignes</h3>\n<p>Exemple : 5x70%max, r\u00e9cup d\u00e9croissante</p>\n<ul>\n<li>2'</li>\n<li>1'30\"</li>\n<li>1'</li>\n<li>30\"</li>\n</ul></div>\n", "detail/statique-serie-inspi.html": "<div>\n<h2>Statique - s\u00e9rie en inpiration <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e statique\" >\n  STA\n</span>\n</h2><h3>Consignes</h3>\n<p>S\u00e9rie d'apn\u00e9es statiques entre lesquelles on ne fait qu'inspirer un petit coup :</p>\n<ul>\n<li>1\u00e8re apn\u00e9e : poumons vides</li>\n<li>2\u00e8me apn\u00e9e : poumons 1/3 pleins</li>\n<li>3\u00e8me apn\u00e9e : poumons 2/3 pleins</li>\n<li>4\u00e8me apn\u00e9e : poumons pleins</li>\n</ul>\n<p>On peut encha\u00eener cette s\u00e9rie plusieurs fois.</p>\n<p>Exemple :</p>\n<ul>\n<li>4x15\"</li>\n<li>r\u00e9cup 1'</li>\n<li>4x20'</li>\n</ul></div>\n", "detail.html": "<div class=\"row\">\n  <div class=\"col-md-2\">\n    <a href=\"#\" class=\"btn btn-default\">\n      <span class=\"glyphicon glyphicon-arrow-left\"></span> Retour\n    </a>\n  </div>\n  <div class=\"col-md-8\">\n    <div class=\"panel panel-default\" id=\"detail\">\n      <div ng-include=\"contents\" class=\"panel-body\"></div>\n    </div>\n  </div>\n</div>\n", "detail/statique-serie.html": "<div>\n<h2>Statique - s\u00e9rie \u00e0 r\u00e9cup\u00e9ration constante <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e statique\" >\n  STA\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Hypercapnique\" >\n  CO2\n</span>\n</h2><h3>Objectifs</h3>\n<h3>Consignes</h3>\n<p>S\u00e9rie \u00e0 r\u00e9cup\u00e9ration courte et constante.</p>\n<p>Exemple : 5x50%max, r\u00e9cup 10\"</p></div>\n", "detail/statique-echauffement-CO2.html": "<div>\n<h2>Statique - \u00e9chauffement hypercapnique <span class=\"label label-default\" \n       tooltip=\"Pr\u00e9paration\" >\n  Prep\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e statique\" >\n  STA\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Hypercapnique\" >\n  CO2\n</span>\n</h2><h3>Objectifs</h3>\n<p>\u00c9chauffement, pr\u00e9paration d'une apn\u00e9e longue. Adapt\u00e9 pour les apn\u00e9istes\nparticuli\u00e8rement tol\u00e9rants au CO2 (favorise le rel\u00e2chement).</p>\n<h3>Consignes</h3>\n<p>S\u00e9rie d'apn\u00e9es \u00e0 50-70%max, r\u00e9cup d\u00e9gressive :</p>\n<ul>\n<li>2'</li>\n<li>1'30\"</li>\n<li>1'</li>\n<li>30\"</li>\n</ul>\n<p>4' r\u00e9cup avant la performance</p></div>\n", "detail/palmage-gainage.html": "<div>\n<h2>Palmage & Gainage <span class=\"label label-default\" \n       tooltip=\"Propulsion\" >\n  Prop\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Entra\u00eenement physique\" >\n  Phy\n</span>\n</h2><h3>Objectifs</h3>\n<ul>\n<li>Am\u00e9liorer le gainage durant le palmage pour \u00eatre plus hydrodynamique.</li>\n</ul>\n<h3>Consignes</h3>\n<p>S\u00e9rie de longueurs en palmant en immersion successivement dans toutes les positions :</p>\n<ul>\n<li>ventrale</li>\n<li>dorsale</li>\n<li>lat\u00e9rale (des deux c\u00f4t\u00e9s)</li>\n</ul>\n<h4>Crit\u00e8res de r\u00e9ussite</h4>\n<ul>\n<li>Trajectoire rectiligne</li>\n<li>Profondeur constante</li>\n</ul>\n<h3>Variantes</h3>\n<ul>\n<li>Changer de position en cours de longueur</li>\n<li>Diminuer la vitesse</li>\n</ul>\n<h3>S\u00e9curit\u00e9</h3>\n<ul>\n<li>Inutile de faire de trop longues distances.</li>\n<li>Possibilit\u00e9 de mettre tout le monde sous l'eau en m\u00eame temps, mais\n  surveillance des voisins.</li>\n</ul></div>\n", "list.html": "<div class=\"row\">\n  <div class=\"col-md-4\">\n    <script type=\"text/ng-template\" id=\"tag_renderer.html\">\n      <div ng-switch=\"\" on=\"tag.type\">\n        <div ng-switch-when=\"category\">\n          + {{tag.title}}\n          <ul>\n            <li ng-repeat=\"tag in tag.children\" ng-include=\"'tag_renderer.html'\"></li>\n          </ul>\n        </div>\n        <div ng-switch-when=\"tag\">\n          <a ng-click=\"toggleTag(tag.name)\" class=\"{{tagClass(tag.name)}}\">\n            <span ng-switch=\"\" on=\"tagState(tag.name)\"\n                  style=\"width:1em; display: inline-block;\">\n              <span ng-switch-when=\"true\"  class=\"glyphicon glyphicon-plus-sign\"></span>\n              <span ng-switch-when=\"false\" class=\"glyphicon glyphicon-minus-sign\">\udb40\udc7f</span>\n            </span>\n            {{tag.name}} : {{tag.title}}\n          </a>\n        </div>\n      </div>\n    </script>\n\n    <ul id=\"tags\" class=\"list-unstyled\">\n      <li ng-repeat=\"tag in tags\" ng-include=\"'tag_renderer.html'\"></li>\n    </ul>\n  </div>\n\n  <div class=\"col-md-8\">\n    <div style=\"margin-bottom: 1em;\">\n      <input ng-model=\"query\" ng-change=\"updateQuery()\"\n             class=\"form-control\"\n             placeholder=\"Rechercher\"/>\n    </div>\n    <div class=\"text-right\">{{list.length}} \u00e9l\u00e9ments</div>\n    <div class=\"list-group\" id=\"list\">\n      <a ng-repeat=\"item in list\"\n         href=\"#/detail/{{item.id}}\"\n         class=\"list-group-item\">\n        {{item.title}}\n        <span ng-repeat=\"tag in item.tags\"\n              class=\"label label-default\"\n              tooltip=\"{{tagTitle[tag]}}\">\n          {{tag}}\n        </span>\n      </a>\n    </div>\n  </div>\n</div>\n", "detail/dnf-technique.html": "<div>\n<h2>Dynamique sans palmes - technique <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e dynamique sans palmes\" >\n  DNF\n</span>\n</h2><h3>Objectifs</h3>\n<p>D\u00e9composer le mouvement de brasse pour am\u00e9liorer son efficacit\u00e9 partie par partie.</p>\n<h3>Consignes</h3>\n<h4>Travail des bras (1)</h4>\n<p>R\u00e9aliser des apn\u00e9es sans palmes en n'utilisant que les bras. Les mains ne\ndoivent pas descendre plus bas que la poitrine.</p>\n<p>La pouss\u00e9e est r\u00e9alis\u00e9e par les bras en \"ailes de poulet\".</p>\n<h4>Travail des jambes</h4>\n<p>R\u00e9aliser des apn\u00e9es sans palmes en n'utilisant que les jambes.</p>\n<p>Les genoux doivent remonter serr\u00e9s sous le ventre (pas \u00e9cart\u00e9s). Les pieds\ns'\u00e9cartent au moment de la pouss\u00e9e et se rassemblent pour faire la force du\nmouvement.</p>\n<p>Les pointes de pieds restent tendues tout au long du mouvement, qui doit se\nterminer par un claquement des deux pieds.</p>\n<h4>Coordination bras - jambes</h4>\n<p>R\u00e9aliser des apn\u00e9es sans palmes en utilisant bras et jambes. Les mans ne doivent\npas descendre plus bas que la poitrine.</p>\n<p>Coordonner le mouvement de sorte que les genoux et les mains remontent en m\u00eame\ntemps (on limite ainsi le freinage).</p>\n<p>Laisser un temps de glisse entre le mouvement de jambes et les bras ; encha\u00eener\naussi rapidement que possible la remont\u00e9e de genoux et la pouss\u00e9e des jambes.</p>\n<h4>Travail des bras (2)</h4>\n<p>R\u00e9aliser des apn\u00e9es sans palmes en n'utilisant que les bras. Le mouvement se\nfait en deux temps :</p>\n<ol>\n<li>\n<p>\"ailes de poulet\" : les mains ne descendent pas plus bas que la poitrine,\n   paumes vers l'int\u00e9rieur.</p>\n</li>\n<li>\n<p>pouss\u00e9e avec les mains : retournement des paumes vers l'ext\u00e9rieur et\n   rabattement des avant-bras vers le bas.</p>\n</li>\n</ol>\n<h4>Coordination du mouvement complet</h4>\n<p>R\u00e9aliser des apn\u00e9es sans palmes en utilisant bras et jambes avec un mouvement\ncomplet.</p>\n<h5>Variante</h5>\n<p>Encha\u00eener les diff\u00e9rentes phases du mouvement de mani\u00e8re irr\u00e9guli\u00e8re.</p>\n<p>Exemple :</p>\n<ul>\n<li>pouss\u00e9e</li>\n<li>jambes</li>\n<li>bras (1)</li>\n<li>jambes</li>\n<li>jambes</li>\n<li>bras complets</li>\n<li>...</li>\n</ul>\n<h3>Crit\u00e8res de r\u00e9alisation</h3>\n<p>Compter le nombre de mouvements n\u00e9cessaires pour une longueur.</p></div>\n", "detail/statique-pyramide-duree.html": "<div>\n<h2>Statique - pyramide sur la dur\u00e9e <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e statique\" >\n  STA\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Hypercapnique\" >\n  CO2\n</span>\n</h2><h3>Objectifs</h3>\n<h3>Consignes</h3>\n<p>R\u00e9cup\u00e9ration constante, apn\u00e9e progressive.</p>\n<h4>Variante 1 : 50-65%max</h4>\n<p>Exemple : r\u00e9cup 10\"</p>\n<ul>\n<li>1'30\"</li>\n<li>1'45\"</li>\n<li>2'</li>\n<li>2'15</li>\n</ul>\n<h4>Variante 2 : 50-80%max</h4>\n<p>Exemple : r\u00e9cup 1'</p>\n<ul>\n<li>1'30\"</li>\n<li>2'</li>\n<li>2'30\"</li>\n<li>3'</li>\n</ul>\n<h4>Variante 3 : d\u00e9part \u00e0 intervalles fixes</h4>\n<p>Exemple : d\u00e9part 3'30</p>\n<ul>\n<li>2'20\"</li>\n<li>2'30\"</li>\n<li>2'40\"</li>\n<li>2'50\"</li>\n<li>3'</li>\n</ul>\n<p>Possibilit\u00e9 d'encha\u00eener les s\u00e9ries.</p></div>\n", "detail/poumons-vides.html": "<div>\n<h2>Apn\u00e9e poumons vides <span class=\"label label-default\" \n       tooltip=\"Pr\u00e9paration\" >\n  Prep\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Apn\u00e9e statique\" >\n  STA\n</span>\n <span class=\"label label-default\" \n       tooltip=\"Hypoxique\" >\n  O2\n</span>\n</h2><h3>Objectifs</h3>\n<p>\u00c9chauffement, passage en \"mode apn\u00e9e\".\n\u00c9tirement du diaphragme.</p>\n<h3>Consignes</h3>\n<p>S\u00e9rie d'apn\u00e9es statiques, poumons vides.</p>\n<p>Exemple: d\u00e9part 2'</p>\n<ul>\n<li>10\"</li>\n<li>20\"</li>\n<li>30\"</li>\n<li>40\"</li>\n</ul>\n<h4>Variantes</h4>\n<p>L\u00e2cher de bulles au lieu de poumons vides (plus doux).</p>\n<p>Exemple: 5x1', d\u00e9part 2\"</p>\n<h3>S\u00e9curit\u00e9</h3>\n<p>Attention, exercice potentiellement hypoxique. Surveillance rapproch\u00e9e.</p></div>\n"}, "tagTitle": {"Vent": "Ventilation", "DNF": "Apn\u00e9e dynamique sans palmes", "MA": "Gestion du manque d'air", "STA": "Apn\u00e9e statique", "Comp": "Compensation", "CWT": "Apn\u00e9e poids constant", "Prot": "Protocole", "DYN": "Apn\u00e9e dynamique", "Prop": "Propulsion", "Surv": "Surveillance", "Phy": "Entra\u00eenement physique", "CO2": "Hypercapnique", "Can": "Canard", "Org": "Organisation", "Lac": "Hyperlactique", "O2": "Hypoxique", "Prep": "Pr\u00e9paration", "Sauv": "Assistance & Sauvetage"}, "list": [{"title": "D\u00e9couplage sensations / r\u00e9actions", "id": "decouplage", "tags": ["MA", "DNF", "CO2"]}, {"title": "Dynamique sans palmes - technique", "id": "dnf-technique", "tags": ["DNF"]}, {"title": "Palmage & Gainage", "id": "palmage-gainage", "tags": ["Prop", "Phy"]}, {"title": "Apn\u00e9e poumons vides", "id": "poumons-vides", "tags": ["Prep", "STA", "O2"]}, {"title": "Statique - course", "id": "statique-course", "tags": ["STA", "CO2"]}, {"title": "Statique - dynamique", "id": "statique-dynamique", "tags": ["DYN", "O2"]}, {"title": "Statique - \u00e9chauffement hypercapnique", "id": "statique-echauffement-CO2", "tags": ["Prep", "STA", "CO2"]}, {"title": "Statique - \u00e9chauffement hypoxique", "id": "statique-echauffement-O2", "tags": ["Prep", "STA", "O2"]}, {"title": "Statique - pyramide sur la dur\u00e9e", "id": "statique-pyramide-duree", "tags": ["STA", "CO2"]}, {"title": "Statique - pyramide sur la r\u00e9cup\u00e9ration", "id": "statique-pyramide-recup", "tags": ["STA", "CO2"]}, {"title": "Statique - s\u00e9rie en inpiration", "id": "statique-serie-inspi", "tags": ["STA"]}, {"title": "Statique - s\u00e9rie \u00e0 r\u00e9cup\u00e9ration constante", "id": "statique-serie", "tags": ["STA", "CO2"]}, {"title": "Statique - simulateur sablier", "id": "statique-simulateur-sablier", "tags": ["STA", "O2"]}], "tags": [{"type": "category", "children": [{"type": "category", "children": [{"type": "tag", "name": "Vent", "title": "Ventilation"}, {"type": "tag", "name": "Prep", "title": "Pr\u00e9paration"}], "title": "C2a - Technique en surface"}, {"type": "category", "children": [{"type": "tag", "name": "Can", "title": "Canard"}, {"type": "tag", "name": "Prop", "title": "Propulsion"}, {"type": "tag", "name": "Comp", "title": "Compensation"}, {"type": "tag", "name": "Prot", "title": "Protocole"}], "title": "C2b - Technique en immersion"}, {"type": "category", "children": [{"type": "tag", "name": "Phy", "title": "Entra\u00eenement physique"}, {"type": "tag", "name": "MA", "title": "Gestion du manque d'air"}, {"type": "tag", "name": "STA", "title": "Apn\u00e9e statique"}, {"type": "tag", "name": "DYN", "title": "Apn\u00e9e dynamique"}, {"type": "tag", "name": "DNF", "title": "Apn\u00e9e dynamique sans palmes"}, {"type": "tag", "name": "CWT", "title": "Apn\u00e9e poids constant"}], "title": "C3 - Apn\u00e9e"}, {"type": "category", "children": [{"type": "tag", "name": "Surv", "title": "Surveillance"}, {"type": "tag", "name": "Sauv", "title": "Assistance & Sauvetage"}, {"type": "tag", "name": "Org", "title": "Organisation"}], "title": "C4 - Autonomie"}], "title": "Comp\u00e9tences"}, {"type": "category", "children": [{"type": "tag", "name": "O2", "title": "Hypoxique"}, {"type": "tag", "name": "CO2", "title": "Hypercapnique"}, {"type": "tag", "name": "Lac", "title": "Hyperlactique"}], "title": "R\u00e9gime"}]};
+//-->
+</script>
+
+<script>
+//<!--app.js
+var app = angular.module('app', ["ngRoute", "ui.bootstrap"]);
+
+app.config(function($routeProvider) {
+    $routeProvider.
+        when('/list', {
+            templateUrl: 'list.html',
+            controller: 'ListCtrl'
+        }).
+        when('/detail/:id', {
+            templateUrl: 'detail.html',
+            controller: 'DetailCtrl'
+        }).
+        otherwise({
+            redirectTo: '/list'
+        });
+});
+
+app.service('model', function ($rootScope) {
+    this.debug = null;
+
+    this.fullList = data.list;
+    this.list = [];
+
+    this.setQuery = function (query) {
+        var criteria = {'title': [],
+                        'tags':  {}};
+
+        if (query) {
+            query.split(" ").forEach (function (word) {
+                var firstLetter = word.substr(0,1);
+                if (firstLetter == '+' || firstLetter == '-') {
+                    var tagName = word.substr(1);
+                    criteria.tags[tagName] = (firstLetter == '+');
+                } else {
+                    criteria.title.push(word);
+                }
+            });
+        }
+
+        this.criteria = criteria;
+        this.update ("query");
+    };
+
+    this.getQuery = function () {
+        var query = [];
+        this.criteria.title.forEach (function (word) {
+            query.push (word);
+        });
+        for (var tag in this.criteria.tags) {
+            var sign = this.criteria.tags[tag] ? "+" : "-";
+            query.push (sign+tag);
+        }
+        return query.join (" ");
+    };
+
+    this.toggleTag = function (tag) {
+        var current = this.criteria.tags[tag];
+        if (current == undefined) {
+            this.criteria.tags[tag] = true;
+        } else if (current) {
+            this.criteria.tags[tag] = false;
+        } else {
+            delete this.criteria.tags[tag];
+        }
+
+        this.update ("tag");
+    };
+
+    this.update = function (source) {
+        filtered = this.fullList;
+
+        this.criteria.title.forEach (function (word) {
+            filtered = filtered.filter (function (exo) {
+                return (exo.title.toLowerCase().search(word.toLowerCase()) != -1);
+            });
+        });
+
+        for (var tag in this.criteria.tags) {
+            if (this.criteria.tags[tag]) {
+                filtered = filtered.filter (function (exo) {
+                    return (exo.tags.indexOf(tag) != -1);
+                });
+            } else {
+                filtered = filtered.filter (function (exo) {
+                    return (exo.tags.indexOf(tag) == -1);
+                });
+            }
+        }
+
+        this.list = filtered;
+        $rootScope.$broadcast ('model::update', source);
+    };
+
+    this.setQuery ("");
+});
+
+app.controller('ListCtrl', function ($scope, model) {
+    $scope.refresh = function (event, source) {
+        $scope.list      = model.list;
+        $scope.criteria  = model.criteria;
+        if (source != "query") {
+            $scope.query = model.getQuery();
+        }
+
+        $scope.tags = data.tags;
+        $scope.tagTitle = data.tagTitle;
+
+        $scope.debug = "";
+    };
+
+    $scope.updateQuery = function () {
+        model.setQuery ($scope.query);
+    };
+
+    $scope.toggleTag = function (tag) {
+        model.toggleTag (tag);
+    };
+
+    $scope.tagState = function (tag) {
+        return model.criteria.tags[tag];
+    };
+
+    $scope.tagClass = function (tag) {
+        var state = $scope.tagState (tag);
+        if (state == true) {
+            return "text-success";
+        } else if (state == false) {
+            return "text-danger";
+        }
+        return "text-muted";
+    };
+
+    $scope.$on('model::update', $scope.refresh);
+    $scope.refresh(null, "init");
+});
+
+
+app.controller('DetailCtrl', function ($scope, $routeParams) {
+    $scope.id = $routeParams.id;
+
+    $scope.contents = "detail/" + $scope.id + ".html";
+});
+
+app.run(function($templateCache) {
+    for (var name in data.templates) {
+        $templateCache.put(name, data.templates[name]);
+    }
+});
+//-->
+</script>
+
+<style type="text/css">
+/* app.css */
+#tags ul {
+    padding-left: 1em;
+}
+
+#tags li {
+    list-style: none;
+}
+
+#tags a.text-success,
+#tags a.text-danger {
+    font-weight: bold;
+}
+
+
+#list a {
+    font-weight: bold;
+}
+
+#list span.label {
+    margin-left: 0.2em;
+}
+
+
+
+#detail h4 {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#detail h5 {
+    margin-top: 15px;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+span.label {
+    display: inline-block;
+}
+</style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 col-lg-offset-1 col-lg-10">
+          <div class="row">
+            <div class="col-md-12 page-header">
+              <h1>Exercices d'apnée</h1>
+            </div>
+          </div>
+          <div ng-view></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
