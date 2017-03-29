@@ -1,0 +1,9 @@
+*~
+.bundle
+.jekyll-metadata
+.sass-cache
+Gemfile.lock
+_site
+assets/bootstrap
+assets/font-awesome
+vendor

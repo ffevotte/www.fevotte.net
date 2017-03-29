@@ -1,0 +1,62 @@
+---
+# header to make jekyll process this file
+---
+
+/*  Typography */
+p {
+    text-align: justify !important;
+}
+
+h1 {
+    margin-top: 1em;
+}
+
+.footer-box div {
+    margin-left: 1.5em;
+}
+
+.footer-box a {
+    color: inherit;
+}
+
+.footer-icon {
+    width: 1.5em;
+    display: inline-block;
+}
+
+i.footer-icon {
+    color: black;
+    margin-top: 0.5em;
+}
+
+i.fa-rg::before {
+    content: url("/assets/rg.svg");
+}
+
+table.bibtex2html td {
+    text-align: justify !important;
+}
+
+/* Footer */
+$footer-height: 16.5em;
+$footer-color:  #dddddd; /*#f5f5f5;*/
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: $footer-height + 1em;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 1em;
+    height: $footer-height - 1em;
+    background-color: $footer-color;
+}
+
+.footer .container {
+    background-color: $footer-color;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          crossorigin="anonymous">
+    <!-- Font awesome -->
+    <link rel="stylesheet"
+          href="{{"/assets/font-awesome/css/font-awesome.min.css"|relative_url}}">
+    
+    <link rel="stylesheet"
+          href="{{"/assets/style.css"|relative_url}}">
+    
+    <title>
+      {% if page.shortTitle %}
+      {{   page.shortTitle | escape }} -
+      {% elsif page.title %}
+      {{   page.title | escape }} -
+      {% endif %}
+      {{ site.title | escape }}
+    </title>
+  </head>
+  
+  <body>
+    <header>
+      <nav class="navbar navbar-toggleable-sm navbar-inverse bg-primary">
+        <button class="navbar-toggler navbar-toggler-right"
+                type="button" data-toggle="collapse"
+                data-target="#navbarCollapse"
+                aria-controls="navbarCollapse"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container">
+        <a class="navbar-brand"
+           href="{{ "/" | relative_url}}">
+          {{ site.title | escape }}</a>
+        
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            {% for n in site.nav %}
+            <li class="nav-item {%if n[1] == page.url%}active{%endif%}">
+              <a class="nav-link" href="{{n[1]|relative_url}}">
+                 {{ n[0] }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          <!-- <form class="form-inline my-2 my-lg-0"> -->
+          <!--   <input class="form-control mr-sm-2" type="text" placeholder="Search"> -->
+          <!--   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+          <!-- </form> -->
+        </div>
+        </div>
+      </nav>
+      
+      <div>
+      </div>
+    </header>
+    
+    <main class="container">
+      {{ content }}
+    </main>
+    
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 footer-box">
+            <h4>Contact</h4>
+            <div><i class="fa fa-envelope footer-icon" aria-hidden="true"></i>
+              francois.fevotte<i class="fa fa-at" aria-hidden="true"></i>edf.fr
+            </div>
+            <div><i class="fa fa-phone footer-icon" aria-hidden="true"></i>
+              (+33) 1 78 19 44 23
+            </div>
+            <div><i class="fa fa-home footer-icon" aria-hidden="true"></i>
+              EDF Lab Paris Saclay
+            </div>
+            <div><span class="footer-icon"></span>
+              Département PERICLES</div>
+            <div><span class="footer-icon"></span>
+              7 bd Gaspard Monge</div>
+            <div><span class="footer-icon"></span>
+              91120 Palaiseau</div>
+          </div>
+          <div class="col-sm-6 footer-box">
+            <div><a href="http://github.com/ffevotte/" title="Github"
+                    data-toggle="tooltip" data-placement="left">
+                <i class="fa fa-github footer-icon" aria-hidden="true"></i>
+                ffevotte
+            </a></div>
+            <div><a href="https://www.researchgate.net/profile/Francois_Fevotte"
+                    title="ResearchGate"
+                    data-toggle="tooltip" data-placement="left">
+                <i class="fa fa-rg footer-icon" aria-hidden="true"></i>
+                Francois_Fevotte
+            </a></div>
+            <div><a href="https://scholar.google.fr/citations?user=cFcHyZIAAAAJ"
+                    title="Google Scholar"
+                    data-toggle="tooltip" data-placement="left">
+                <i class="fa fa-google footer-icon" aria-hidden="true"></i>
+                François Févotte
+            </a></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 text-muted text-right">&copy; François Févotte 2017</div>
+        </div>
+      </div>
+    </footer>
+    
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+    <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
+  </body>
+</html>
