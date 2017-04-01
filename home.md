@@ -1,9 +1,9 @@
 ---
-title: Research interests
 layout: page
 permalink: /
 ---
 
+# Research interests
 
 My interest lies in the performance and quality of numerical simulations. Such
 simulations are used more and more everyday, not only as numerical experiments
@@ -39,7 +39,7 @@ precisely, I try to investigate the effect of using floating-point arithmetics
 to implement algorithms that are usually designed to work with real numbers.
 
 I am one of the original developers
-of [Verrou](http://github.com/edf-hpc/verrou), a tool building on monte-carlo
+of [Verrou](http://github.com/edf-hpc/verrou), a tool relying on monte-carlo
 arithmetics and random rounding to help diagnose and fix numerical instabilities
 in industrial scientific computing codes.
 
