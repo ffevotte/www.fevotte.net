@@ -33,6 +33,10 @@ i.fa-rg::before {
     content: url("/assets/rg.svg");
 }
 
+i.fa-gs::before {
+    content: url("/assets/google-scholar.svg");
+}
+
 table.bibtex2html td {
     text-align: justify !important;
 }
