@@ -16,11 +16,9 @@
 title: François Févotte
 email: fevotte@gmail.com
 description: >
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Professional web site for François Févotte.
 baseurl: ""
-url: ""
+url: "http://fevotte.net"
 twitter_username: jekyllrb
 github_username:  jekyll
 
@@ -32,9 +30,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
-  - _tmp
+  - _site
+  - _preview
   - bibtex2html-1.98-linux
-  - publications/assets
 
 nav:
   - ["Publications", "/publications/"]

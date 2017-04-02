@@ -1,6 +1,7 @@
 ---
 layout: page
 permalink: /
+sitemap-priority: 1.0
 ---
 
 # Research interests

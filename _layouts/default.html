@@ -17,14 +17,9 @@
     <link rel="stylesheet"
           href="{{"/assets/style.css"|relative_url}}">
     
-    <title>
-      {% if page.shortTitle %}
-      {{   page.shortTitle | escape }} -
-      {% elsif page.title %}
-      {{   page.title | escape }} -
-      {% endif %}
-      {{ site.title | escape }}
-    </title>
+    <title>{{   page.shortTitle | default: page.title | default: site.title | escape }}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   </head>
   
   <body>
@@ -73,7 +68,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-6 footer-box">
-            <h4>Contact</h4>
+            <h1>Contact</h1>
             <div><i class="fa fa-envelope footer-icon" aria-hidden="true"></i>
               francois.fevotte<i class="fa fa-at" aria-hidden="true"></i>edf.fr
             </div>

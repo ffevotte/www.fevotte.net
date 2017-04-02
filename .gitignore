@@ -3,6 +3,7 @@
 .jekyll-metadata
 .sass-cache
 Gemfile.lock
+_preview
 _site
 assets/bootstrap
 assets/font-awesome
