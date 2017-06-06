@@ -4,14 +4,64 @@ layout:    page
 permalink: /publications/
 
 bibtex_name:  bibtex.html
-bibtex_opts:  -nf slides slides -nf paper paper
+bibtex_opts:  -nf slides slides -nf paper paper -nf poster poster
 ---
 
-Article {fevotte20xx,
+@Unpublished{fevotte20xy,
+  author =       {François Févotte and Bruno Lathuilière},
+  title =        { {Verrou}: Assessing Floating-Point Accuracy Without Recompiling},
+  OPTjournal =   {},
+  year =         {In preparation},
+  OPTkey =       {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTpages =     {},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {},
+  url =          {https://hal.archives-ouvertes.fr/hal-01383417},
+}
+
+@Unpublished{fevotte20xx,
   author =       {François Févotte},
-  title =        { {PDSA}: a Piecewise Diffusion Synthetic Acceleration Scheme},
+  title =        { {PDSA}: a {P}iecewise {D}iffusion {S}ynthetic {A}cceleration
+                  Scheme for Neutron Transport Simulations in Diffusive Media},
+  OPTjournal =   {},
+  year =         {In preparation},
+  OPTkey =       {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTpages =     {},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Unpublished{moustafa20xx,
+  author =       {Salli Moustafa and François Févotte and Mathieu Faverge and
+                  Laurent Plagne and Pierre Ramet},
+  title =        {Efficient parallel solution of the {3D} Stationary {B}oltzmann
+                  Transport Equation for Diffusive Problems},
   journal =      {},
-  year =         {En cours},
+  year =         {In preparation},
+  OPTkey =       {},
+  OPTvolume =    {},
+  OPTnumber =    {},
+  OPTpages =     {},
+  OPTmonth =     {},
+  OPTnote =      {},
+  OPTannote =    {}
+}
+
+@Article{jeffers20xx,
+  author =       {Rebecca Jeffers and J\'{o}szef K\'{o}ph\'{a}zi and Matthew
+                  D. Eaton and François Févotte and Frank Hülsemann and Jean
+                  Ragusa},
+  title =        {Goal-based error estimation, functional correction, h, p, and
+                  hp adaptivity of the {1-D} diamond difference discrete
+                  ordinate method},
+  journal =      { {\em Submitted to} Journal of Computational and Theoretical Transport},
+  year =         {under review},
   OPTkey =       {},
   OPTvolume =    {},
   OPTnumber =    {},
@@ -35,18 +85,30 @@ Article {fevotte20xx,
   OPTmonth =     {},
   OPTnote =      {},
   OPTannote =    {},
-  url =          "https://hal.archives-ouvertes.fr/hal-01331917"}
+  url =          "https://hal.archives-ouvertes.fr/hal-01331917"
+}
 
-@Article{jeffers2017,
-  author =       {Rebecca Jeffers and J\'{o}szef K\'{o}ph\'{a}zi and Matthew D. Eaton and
-                  François Févotte and Frank Hülsemann and Jean Ragusa},
-  title =        {Goal-based h-adaptivity of the {1-D} diamond difference discrete ordinate method},
-  journal =      {Journal of Computational Physics},
+@InProceedings{fevotte2017a,
+  author =       {François Févotte and Bruno Lathuilière},
+  title =        {Studying the numerical quality of an industrial computing
+                  code: a case study on {code\_aster} },
+  booktitle =    {Numerical Software Verification (NSV)},
   year =         2017,
-  volume =       335,
-  pages =        {179--200},
-  issn =         "0021-9991",
-  doi =          "http://dx.doi.org/10.1016/j.jcp.2017.01.037"}
+  month =        jul,
+  address =      {Heidelberg, Germany},
+  paper =        {fevotte2017a.pdf},
+}
+
+@InProceedings{fevotte2017,
+  author =       {François Févotte and Bruno Lathuilière},
+  title =        {Tester la qualité numérique des codes de calcul avec {V}errou},
+  booktitle =    {Colloque National en Calcul des Structures (CSMA)},
+  year =         2017,
+  month =        may,
+  address =      {Giens, France},
+  paper =        {fevotte2017_paper.pdf},
+  poster =       {fevotte2017_poster.pdf},
+}
 
 @InProceedings{calloo2017,
   author =       {Ansar Calloo and David Couyras and François Févotte and Matthieu Guillo},
@@ -56,6 +118,18 @@ Article {fevotte20xx,
   month =        apr,
   address =      {Jeju, Korea},
   paper =        {calloo2017.pdf}}
+
+@Article{jeffers2017,
+  author =       {Rebecca Jeffers and J\'{o}szef K\'{o}ph\'{a}zi and Matthew D. Eaton and
+                  François Févotte and Frank Hülsemann and Jean Ragusa},
+  title =        {Goal-based h-adaptivity of the {1-D} diamond difference discrete ordinate method},
+  journal =      {Journal of Computational Physics},
+  month =        jan,
+  year =         2017,
+  volume =       335,
+  pages =        {179-200},
+  issn =         "0021-9991",
+  doi =          "http://dx.doi.org/10.1016/j.jcp.2017.01.037"}
 
 @InProceedings{fevotte2016,
   author =       {François Févotte and Bruno Lathuilière},
