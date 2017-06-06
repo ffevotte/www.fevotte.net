@@ -1,0 +1,189 @@
+\documentclass{moderncv}
+\usepackage[a4paper,hmargin=1.5cm,vmargin={1.1cm, 2cm}]{geometry}
+\usepackage[utf8]{inputenc}
+\moderncvstyle{ff}
+%\moderncvstyle{classic}
+\moderncvcolor{blue}
+\usepackage{XCharter}
+\usepackage{fixltx2e}
+\usepackage{totcount}
+
+\setlength{\hintscolumnwidth}{2.8cm} % width of the column with the dates
+
+\nopagenumbers{} % to suppress automatic page numbering for CVs longer than one page
+
+\usepackage{enumitem}
+\setlist[description]{font=\normalfont\itshape}
+\setlist[itemize]{noitemsep,nosep}
+
+\name{François}{Févotte}
+\title{Mathématiques appliquées et \mbox{calcul scientifique à haut rendement}}
+\address{EDF Lab Paris Saclay}{7 bd Gaspard Monge}{91120 Palaiseau}
+%\phone[mobile]{+1~(234)~567~890}
+\phone[fixed]{(+33)~1~78~19~44~23}
+%\phone[fax]{+3~(456)~789~012}
+\email{francois.fevotte@edf.fr}
+%\homepage{www.johndoe.com}
+%\social[linkedin]{john.doe}
+%\social[twitter]{jdoe}
+\social[github]{ffevotte}
+%\extrainfo{additional information}
+%\photo[64pt][0.4pt]{picture}
+%\quote{Some quote}
+
+
+\newcommand{\verrou}{\href{http://github.com/edf-hpc/verrou}{\textsc{Verrou}}}
+
+\begin{document}
+\makecvtitle
+
+\section{Expérience}
+
+\cventry{depuis 2008}{Ingénieur Chercheur}{EDF R\&D, dept PERICLES, groupe Analyse et
+  Modèles Numériques}{}{}{
+  \begin{description}
+  \item[Future Chaîne de Calcul des C{\oe}urs]: développement de solveurs pour
+    la plate-forme de simulation neutronique \textsc{Cocagne}, membre du comité de
+    suivi d'\textsc{Apollo3} dans l'Institut Tri-Partite EDF--CEA--AREVA (I3P) ;
+  \item[Performance et Qualité des Simulations]: reponsable du lot ``sujets
+    exploratoires et méthodes avancées'', développement de l'outil \verrou{}
+    pour la qualité numérique des outils de calcul ;
+  \item[Écoles d'été CEA--EDF--INRIA]: membre du comité exécutif, représentant
+    EDF pour l'analyse numérique.
+  \end{description}
+}
+
+\cventry{depuis 2007}{Enseignement}{ENSTA {\em et} Université Paris Saclay}{}{}{%
+  \begin{itemize}
+  \item \textit{Introduction à la discrétisation des EDP} :
+    1\textsuperscript{ère}~année~ENSTA, chargé de TD (resp: P. Joly) ;
+  \item \textit{La méthode des éléments finis} :
+    2\textsuperscript{ème}~année~ENSTA, chargé de TD (resp: S. Fliss) ;
+  \item \textit{Modélisation et simulation du transport de particules neutres} :
+    Master Analyse, Modélisation et \mbox{Simulation} (AMS), co-responsable avec
+    G. Samba (CEA);
+  \item Membre du conseil de perfectionnement de l'université Paris Saclay.
+  \end{itemize}
+}
+
+\section{Compétences et sujets de recherche}
+
+\subsection{Communication et animation d'activités scientifiques}
+
+\cvitem{Encadrement}{Suivi de quatre thèses avec divers partenaires : \small École Polytechnique
+  de Montréal, Imperial College, Université Pierre et Marie Curie, CEA ;}
+
+\cvitem{Communication scientifique}{Articles et présentations dans des revues et conférences
+  internationales, \small\begin{itemize}
+  \item Relecture d'articles pour la revue \textit{Nuclear Science and
+      Engineering},
+  \item Membre du comité de programme de la conférence \textit{Numerical
+      Software Verification} (NSV 2017).
+  \end{itemize}\vspace{-1em}\strut
+}
+
+% \subsection{Mathématiques Appliquées, Analyse Numérique}
+% \cvitem{Méthodes num.}{Méthode des caractéristiques, éléments finis.}
+% \cvitem{Calcul}{Matlab, Maxima (calcul formel).}
+
+% \subsection{Développement de solveurs à haut rendement}
+
+% \cvitem{Langages}{C++, Python.}
+% \cvitem{Paradigmes}{Méta-programmation, \textit{multithreading}, vectorisation.}
+
+\subsection{Développement de solveurs à haut rendement, Mathématiques
+  appliquées}
+\cvitem{Méthodes num.}{Méthode des caractéristiques, éléments finis ;}
+\cvitem{Langages}{[production] C++, Python,
+  \hfill[mise au point] Matlab, Maxima (calcul formel) ;}
+\cvitem{Paradigmes}{Méta-programmation, \textit{multithreading}, vectorisation.}
+
+\subsection{Qualité numérique des codes}
+
+\cvitem{Arithmétique}{Arithmétiques flottante et stochastique, détection des
+  erreurs d'arrondi ;}
+
+\cvitem{Outils d'analyse}{Analyse des instabilités numériques :\small
+  \begin{itemize}
+  \item Utilisation de la bibliothèque \textsc{Cadna} (LIP6) ;
+  \item Développement de l'outil \verrou{} et application aux codes métier EDF (Code\_Aster, Apogene).
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\subsection{Physique des Réacteurs : modélisation et simulation}
+\cvitem{Chaîne industrielle}{%
+  Développement dans la future chaîne de calcul des c{\oe}urs \textsc{Cocagne} :\small
+  \begin{itemize}
+  \item Solveurs d'évolution des concentrations isotopiques,
+  \item Méthodes de reconstruction fine du flux,
+  \item Fonctionnalités de \textit{rod cusping} pour les calculs
+    instationnaires.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\cvitem{Schémas avancés}{\vspace{-0.85em}\small\begin{itemize}
+  \item Mise au point de la méthode d'accélération du solveur de transport
+    3D cartésien \textsc{Domino},
+  \item Développement du solveur de transport 3D en géométries non structurées \textsc{Micado}.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\newpage
+
+\section{Formation}
+
+\cventry{2005--2008}{Thèse}{Commissariat à l'Énergie Atomique}{Saclay}{}{
+  Résolution numérique de l'équation du transport des neutrons avec la méthode
+  des caractéristiques~:
+  \begin{itemize}
+  \item \textit{Best student paper award}, conférence Mathematics \& Computations
+    2007 ;
+  \item \textit{Best student award}, conférence IYCE 2007.
+  \end{itemize}
+}
+
+\cventry{2002--2005}{Cursus ingénieur}{École Nationale Supérieure de Techniques Avancées (ENSTA)}{}{}{
+  \begin{description}
+  \item[Spécialité ``modélisation des systèmes physiques'' :] calcul
+    scientifique et parallèle, commande des systèmes, optimisation
+    différentiable, physique des réacteurs, propagation des ondes.
+  \end{description}}
+
+\cventry{2004--2005}{Master Modélisation et Simulation}{INSTN}{Saclay}{}{}
+
+
+\section{Doctorants}
+
+\cvitem{Wesley Ford\\(2016--)}{Vers des méthodes d'accélération stables et
+  efficaces en contextes parallèles appliquées à l'équation du transport des
+  neutrons~:\small\begin{itemize}
+  \item Directeur : Christophe Calvin (CEA, Maison de la Simulation).
+  \end{itemize}\vspace{-1em}\strut}
+
+\cvitem{Romain Picot\\(2015--)}{Vérification numérique de logiciels de calculs
+  industriels~:\small\begin{itemize}
+  \item Directrice : Fabienne Jézéquel (Université Pierre et Marie Curie, Paris 6).
+  \end{itemize}\vspace{-1em}\strut}
+
+\cvitem{Rebecca Jeffers\\(2013--2016)}{Goal Based Coupled Adaptive Mesh
+  Refinement (AMR) and angular adaptivity on Cartesian Meshes for Modelling
+  Neutron Transport in PWR Reactor Cores~:\small\begin{itemize}
+  \item Directeur : Matthew D. Eaton (Imperial College London).
+  \end{itemize}\vspace{-1em}\strut}
+
+\cvitem{\hspace{-5em}Marc-André Lajoie\\(2011--2017)}{Développement d’un schéma
+  de calcul prismatique généralisé parallèle en transport déterministe
+  hétérogène 3-D~:\small\begin{itemize}
+  \item Co-directeur : Guy Marleau (École Polytechnique de Montréal).
+  \end{itemize}\vspace{-1em}\strut}
+
+\section{Publications}
+\input{biblio}
+\bibliographystyle{moderncv}
+\newtotcounter{NbRefs}
+\newcounter{BibIndex}
+\setcounter{BibIndex}{\totvalue{NbRefs}}
+\newcommand{\bibindex}{\theBibIndex\addtocounter{BibIndex}{-1}\stepcounter{NbRefs}}
+\bibliography{../publications/biblio}
+
+\end{document}

@@ -19,8 +19,8 @@ description: >
   Professional web site for François Févotte.
 baseurl: ""
 url: "http://fevotte.net"
-twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  ffevotte
+google_analytics: UA-96655077-1
 
 # Build settings
 markdown: kramdown
@@ -32,8 +32,10 @@ exclude:
   - vendor
   - _site
   - _preview
+  - _cv
   - bibtex2html-1.98-linux
 
 nav:
   - ["Publications", "/publications/"]
   - ["Teaching",     "/teaching/"]
+  - ["CV",           "/cv/"]

@@ -17,8 +17,16 @@
     <link rel="stylesheet"
           href="{{"/assets/style.css"|relative_url}}">
     
-    <title>{{   page.shortTitle | default: page.title | default: site.title | escape }}</title>
-    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <title>
+      {% if page.title %}
+      {{   page.title | escape }} -
+      {% elsif page.shortTitle %}
+      {{   page.shortTitle | escape }} -
+      {% endif %}
+      {{ site.title | escape }}
+    </title>
+    <meta name="description"
+          content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   </head>
   

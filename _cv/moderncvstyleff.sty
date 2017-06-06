@@ -1,0 +1,127 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvstyleff}[2015/07/28 v2.0.0 modern curriculum vitae and letter header variant: 2]
+
+\usepackage{moderncvstylecasual}
+
+
+\ifthenelse{\isundefined{\makecvhead}}%
+{ % old version
+  \renewcommand{\makecvtitle}{%
+    % recompute lengths (in case we are switching from letter to resume, or vice versa)
+    \recomputecvlengths%
+    % ensure footer with personal information
+    \makecvfooter%
+    % optional picture
+    \newbox{\makecvtitlepicturebox}%
+    \savebox{\makecvtitlepicturebox}{%
+      \ifthenelse{\isundefined{\@photo}}%
+      {}%
+      {%
+        \setlength\fboxrule{\@photoframewidth}%
+        \ifdim\@photoframewidth=0pt%
+        \setlength{\fboxsep}{0pt}\fi%
+        {\color{color1}\framebox{\includegraphics[width=\@photowidth]{\@photo}}}}}%
+    \usebox{\makecvtitlepicturebox}%
+    % name
+    \@initializelength{\makecvtitlepicturewidth}%
+    \settowidth{\makecvtitlepicturewidth}{\usebox{\makecvtitlepicturebox}}%
+    \parbox[b]{\textwidth-\makecvtitlepicturewidth}{%
+      \raggedleft\namefont{\color{color2!70}\@firstname} {\color{color2!100}\@lastname}}\\[-.35em]% alternate design: \MakeLowercase and no space
+    {\color{color2!50}\rule{\textwidth}{.25ex}}%
+    % optional title
+    \ifthenelse{\equal{\@title}{}}{}{\\[1.25em]\null\hfill\titlestyle{\@title}}\\[2.5em]% \null is required as there is no box on the line after \\, so glue (and leaders) disappears; this is in contrast to after \par, where the next line starts with an indent box (even after \noindent).
+    % optional quote
+    \ifthenelse{\isundefined{\@quote}}%
+    {}%
+    {{\null\hfill\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}\hfill\null\\[2.5em]}}%
+    \par}% to avoid weird spacing bug at the first section if no blank line is left after \maketitle
+}{ % new version
+  % from moderncvheadii
+  \renewcommand{\makecvhead}{% TODO: use \@initializecommand, which requires modifying its definition to handle \par
+    % recompute lengths (in case we are switching from letter to resume, or vice versa)
+    \recomputecvlengths%
+    % optional picture (pre-rendering)
+    \@initializebox{\makecvheadpicturebox}%
+    \savebox{\makecvheadpicturebox}{%
+      \ifthenelse{\isundefined{\@photo}}%
+      {}%
+      {%
+        \setlength\fboxrule{\@photoframewidth}%
+        \ifdim\@photoframewidth=0pt%
+        \setlength{\fboxsep}{0pt}\fi%
+        {\color{color1}\framebox{\includegraphics[width=\@photowidth]{\@photo}}}}}%
+    % name (pre-rendering)
+    \@initializelength{\makecvheadpicturewidth}%
+    \settowidth{\makecvheadpicturewidth}{\usebox{\makecvheadpicturebox}}%
+    \@initializebox{\makecvheadnamebox}%
+    \savebox{\makecvheadnamebox}{%
+      \parbox[b]{\textwidth-\makecvheadpicturewidth}{%
+        \if@left\raggedright\fi%
+        \if@right\raggedleft\fi%
+        \namefont%
+        \if@alternate% alternate design: first- and lastname in lowercase with no space in between (distinction is made by color difference)
+        {\color{color2!50}\MakeLowercase\@firstname}{\color{color2}\MakeLowercase\@lastname}%
+        \else% default design: first- and lastname as given with a space in between
+        {\color{color2!80}\@firstname} {\color{color2}\@lastname}\fi}}%
+    % rendering
+    \if@left%
+    \usebox{\makecvheadnamebox}%
+    \usebox{\makecvheadpicturebox}\fi
+    \if@right%
+    \usebox{\makecvheadpicturebox}%
+    \usebox{\makecvheadnamebox}\fi\\[-.35em]%
+    {\color{color2!50}\rule{\textwidth}{.25ex}}%
+    % optional detailed information
+    \if@details{%
+      \\\null%
+      \addressfont\color{color2}%
+      \ifthenelse{\isundefined{\@addressstreet}}{}{\addtomakeheaddetails{\addresssymbol\@addressstreet}%
+        \ifthenelse{\equal{\@addresscity}{}}{}{\addtomakeheaddetails[~--~]{\@addresscity}}% if \addresstreet is defined, \addresscity and \addresscountry will always be defined but could be empty
+        \ifthenelse{\equal{\@addresscountry}{}}{}{\addtomakeheaddetails[~--~]{\@addresscountry}}%
+        \flushmakeheaddetails\@firstmakeheaddetailselementtrue\\\null}%
+      \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
+        \addtomakeheaddetails{\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
+      \ifthenelse{\isundefined{\@email}}{}{\addtomakeheaddetails{\emailsymbol\emaillink{\@email}}}%
+      \ifthenelse{\isundefined{\@homepage}}{}{\addtomakeheaddetails{\homepagesymbol\httplink{\@homepage}}}%
+      \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
+        \addtomakeheaddetails{\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}}%
+      \ifthenelse{\isundefined{\@extrainfo}}{}{\addtomakeheaddetails{\@extrainfo}}%
+      \flushmakeheaddetails}\fi% need to force a \par after this to avoid weird spacing bug at the first section if no blank line is left after \makehead
+    % optional title
+    \ifthenelse{\equal{\@title}{}}{}{%
+      \\[1.25em]\null% \null is required as there is no box on the line after \\, so glue such as \hfill (and leaders) disappear; this is in contrast to after \par, where the next line starts with an indent box (even after \noindent)
+      \if@right\hfill\fi%
+      \if@alternate%
+      \titlestyle{\MakeLowercase\@title}%
+      \else%
+      \titlestyle{\@title}\fi%
+    }\\[2.5em]%
+    % optional quote
+    \ifthenelse{\isundefined{\@quote}}%
+    {}%
+    {{\null\hfill%
+        \begin{minipage}{\quotewidth}%
+          \centering%
+          \quotestyle{\@quote}%
+        \end{minipage}\hfill\null\\[2.5em]}}%
+    \par}% to avoid weird spacing bug at the first section if no blank line is
+  % left after \maketitle
+}
+
+
+% from moderncvbodyi
+\RenewDocumentCommand{\subsection}{sm}{%
+  \par\addvspace{2.5ex}%
+  \phantomsection{}% reset the anchor for hyperrefs
+  \addcontentsline{toc}{subsection}{#2}%
+  % \cvitem[0ex]{}{\strut\subsectionstyle{#2}}%
+  {\subsectionstyle {#2}}%
+  \par\nobreak\addvspace{.5ex}\@afterheading}% to avoid a pagebreak after the heading
+
+\renewcommand{\sectionfont}{\Large\bfseries\upshape}
+\renewcommand{\subsectionfont}{\large\bfseries\upshape}
+
+\endinput
+
+
+%% end of file `moderncvheadii.sty'.
