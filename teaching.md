@@ -6,11 +6,12 @@ permalink: /teaching/
 
 <br/>
 
-- [Introduction to the Discretization of Partial Differential Equations](http://www.ensta-paristech.fr/fr/devenir-ingenieur/formation-1ere-annee/tronc-commun-scientifique#MA103),
+- [Introduction to the Discretization of Partial Differential Equations](https://synapses.ensta-paristech.fr/catalogue/2018-2019/ue/2083/MA103-introduction-a-la-discretisation-des-equations-aux-derivees-partielles),
   ENSTA (1st year).
   
-- [The Finite Elements Method](http://www.ensta-paristech.fr/fr/devenir-ingenieur/formation-2e-annee/enseignement-scientifique-de-voie?sigle=SIM#MAPANN1),
+- [The Finite Elements
+Method](https://synapses.ensta-paristech.fr/catalogue/2018-2019/ue/3017/ANN201-la-methode-des-elements-finis),
   ENSTA (2nd year). 
   
-- [Modeling and Simulation of Neutral Particles Transport](http://www.ensta-paristech.fr/fr/devenir-ingenieur/formation-3e-annee/filieres-d-approfondissement?sigle=A01#AMSTA02),
+- [Modeling and Simulation of Neutral Particles Transport](https://synapses.ensta-paristech.fr/catalogue/2018-2019/ue/1780/AMS302-modelisation-et-simulation-du-transport-de-particules-neutres),
   ENSTA (3rd year) & Université Paris Saclay (M2).
