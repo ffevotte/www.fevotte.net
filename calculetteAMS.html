@@ -27,7 +27,7 @@
   </head>
 
   <body ng-app="optimAMS" ng-controller="ctrl" class="container-fluid">
-    <h1>Calculatrice de moyennes AMS</h1>
+    <h1>Calculatrice de moyennes AMS</h1><h2>(version: {{version}})</h2>
 
     <form style="margin-top: 3em">
       <table class="table form-group">
@@ -194,6 +194,7 @@ app.controller('ctrl', function($scope) {
         $scope.update();
     };
 
+    $scope.version = "jury S1 2018-2019"
     $scope.courses = [
         new Course ("AMS 301", 7),
         new Course ("AMS 302", 4),
