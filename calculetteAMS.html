@@ -70,7 +70,6 @@
             class="{{best.weight ? '' : 'danger'}}">
           {{best.average.toFixed(2)}} ({{best.weight}})
         </td>
-        
       </tr>
     </table>
     <script>
@@ -196,31 +195,37 @@ app.controller('ctrl', function($scope) {
     };
 
     $scope.courses = [
-        new Course ("TA01", 7),
-        new Course ("TA02", 4),
-        new Course ("TA03", 4),
-        new Course ("TA04", 4),
-        new Course ("TA05", 2),
-        new Course ("TA06", 4),
-        new Course ("TA07", 4),
-        new Course ("TA08", 4),
-        new Course ("TA09", 4),
-        new Course ("C01",  4),
-        new Course ("C02",  4),
-        new Course ("C03",  4),
-        new Course ("I01",  4),
-        new Course ("I02",  4),
-        new Course ("I03",  4),
-        new Course ("I04",  4),
-        new Course ("I06",  4),
-        new Course ("I07",  2),
-        new Course ("V01",  4),
-        new Course ("V02",  4),
-        new Course ("V03",  4),
-        new Course ("V04",  4),
-        new Course ("V06",  4),
-        new Course ("O5",   5),
-        new Course ("X01",  4),
+        new Course ("AMS 301", 7),
+        new Course ("AMS 302", 4),
+        new Course ("AMS 303", 4),
+        new Course ("AMS 304", 4),
+        new Course ("AMS 305", 4),
+        new Course ("AMS 306", 4),
+        new Course ("AMS 307", 4),
+        new Course ("AMS 308", 4),
+        new Course ("AMS 309", 4),
+        new Course ("C01",     4),
+        new Course ("C02",     4),
+        new Course ("I01",     4),
+        new Course ("I03",     4),
+        new Course ("I04",     4),
+        new Course ("I05",     4),
+        new Course ("I07",     3),
+        new Course ("V01",     4),
+        new Course ("V02",     4),
+        new Course ("V03",     4),
+        new Course ("V04",     4),
+        new Course ("V05",     4),
+        new Course ("O1",      5),
+        new Course ("O2",      5),
+        new Course ("O3",      5),
+        new Course ("O4",      5),
+        new Course ("O6",      5),
+        new Course ("O7",      5),
+        new Course ("O8",      5),
+        new Course ("X01",     4),
+        new Course ("X02",     4),
+        new Course ("AAG",    10),
     ];
 
     $scope.update();
