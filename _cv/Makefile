@@ -14,10 +14,3 @@ clean:
 
 distclean:
 	latexmk -C $(MAIN)
-
-biblio.tex: nocite
-	grep @ ../publications/biblio.bib \
-	| tac \
-	| perl -pne 's/^.*{/\\nocite{/;' -e 's/,.*$$/}/' \
-	| grep -v -f nocite \
-	> biblio.tex

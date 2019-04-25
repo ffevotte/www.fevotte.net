@@ -1,0 +1,25 @@
+\documentclass{moderncv}
+\usepackage[a4paper,hmargin=1.5cm,vmargin={1.5cm, 2cm}]{geometry}
+\usepackage[utf8]{inputenc}
+\moderncvstyle{ff}
+\moderncvcolor{blue}
+\usepackage{totcount}
+\usepackage{enumitem}
+
+\name{}{}
+\title{}
+
+\begin{document}
+\makecvtitle
+
+
+\input{bibtype-\bibname}
+
+\bibliographystyle{moderncv}
+\newtotcounter{NbRefs}
+\newcounter{BibIndex}
+\setcounter{BibIndex}{\totvalue{NbRefs}}
+\newcommand{\bibindex}{\theBibIndex\addtocounter{BibIndex}{-1}\stepcounter{NbRefs}}
+\bibliography{../publications/biblio}
+
+\end{document}
