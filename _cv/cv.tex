@@ -36,26 +36,9 @@
 
 \begin{document}
 \makecvtitle
-
-\section{Formation}
-
-\cventry{2005--2008}{Thèse}{Commissariat à l'Énergie Atomique}{Saclay}{}{
-  \textit{Sujet} : Simulation du transport des neutrons avec la méthode des
-  caractéristiques.\\
-  \textit{Encadrement} : Richard Sanchez, Simone Santandrea
-  \begin{itemize}
-  \item Développements intégrés dans le solveur TDT du code \textsc{Apollo2}.
-  \end{itemize}
-}
-
-\cventry{2004--2005}{Master Modélisation et Simulation}{INSTN}{Saclay}{}{}
-
-\cventry{2002--2005}{Ingénieur}{École Nationale Supérieure de Techniques Avancées (ENSTA)}{}{}{
-  \begin{description}
-  \item[Spécialité ``modélisation des systèmes physiques'' :] calcul
-    scientifique et parallèle, commande des systèmes, optimisation
-    différentiable, physique des réacteurs, propagation des ondes.
-  \end{description}}
+\newtotcounter{NbRefs}
+\newcounter{BibIndex}
+\setcounter{BibIndex}{\totvalue{NbRefs}}
 
 \section{Expérience Professionnelle}
 
@@ -83,12 +66,13 @@
     2\textsuperscript{ème}~année~ENSTA, chargé de TD (resp: S. Fliss) ;
   \item \textit{Modélisation et simulation du transport de particules neutres} :
     Master Analyse, Modélisation et \mbox{Simulation} (AMS), co-responsable avec
-    G. Samba (CEA);
+    G. Samba (CEA) ;
   \item Membre du conseil de perfectionnement de l'université Paris Saclay.
   \end{itemize}
 }
 
-\cventry{2005}{Stage de fin d'études}{AREVA NP, département Développement}{}{}{%
+\cventry{2005\\\footnotesize(6 mois)}{Stage de fin d'études}{AREVA NP,
+  département Développement}{}{}{%
   \begin{itemize}
   \item Développement d'un modèle de sections efficaces pour la simulation
     neutronique des c{\oe}urs de réacteurs nucléaires à haute température
@@ -98,14 +82,34 @@
   \end{itemize}
 }
 
-\cventry{2004}{Stage de recherche}{Univ. de Californie, Santa Barbara (UCSB),
-  dept. Génie Chimique}{}{}{%
+\cventry{2004\\\footnotesize(4 mois)}{Stage de recherche}{Univ. de Californie, Santa Barbara
+  (UCSB), dept. Génie Chimique}{}{}{%
   \begin{itemize}
   \item Analyse de sensibilité d'un processus de granulation
   \item Développement d'une méthode de contrôle de la distribution de tailles de
     granulats produits.
   \end{itemize}
 }
+
+\section{Formation}
+
+\cventry{2005--2008}{Thèse}{Commissariat à l'Énergie Atomique}{Saclay}{}{
+  \textit{Sujet} : Simulation du transport des neutrons avec la méthode des
+  caractéristiques.\\
+  \textit{Encadrement} : Richard Sanchez, Simone Santandrea
+  \begin{itemize}
+  \item Développements intégrés dans le solveur TDT du code \textsc{Apollo2}.
+  \end{itemize}
+}
+
+\cventry{2004--2005}{Master Modélisation et Simulation}{INSTN}{Saclay}{}{}
+
+\cventry{2002--2005}{Ingénieur}{École Nationale Supérieure de Techniques Avancées (ENSTA)}{}{}{
+  \begin{description}
+  \item[Spécialité ``modélisation des systèmes physiques'' :] calcul
+    scientifique et parallèle, commande des systèmes, optimisation
+    différentiable, physique des réacteurs, propagation des ondes.
+  \end{description}}
 
 \section{Prix et distinctions}
 
@@ -127,20 +131,30 @@
 
 \subsection{Communication et animation d'activités scientifiques}
 
-\cvitem{Encadrement}{Suivi de quatre thèses avec divers partenaires : École
-  Polytechnique de Montréal, Imperial College, Université Pierre et Marie Curie,
-  CEA.}
+\cvitem{Encadrement \& Enseignement}{\vspace{-0.85em}
+  \begin{itemize}
+  \item Suivi et co-direction de quatre thèses avec divers partenaires : École
+    Polytechnique de Montréal, Imperial College, Université Pierre et Marie
+    Curie, CEA ;
+  \item Encadrement de 7 stagiaires ;
+  \item Enseignement académique en mathématiques appliquées (niveau L3 à M2) ;
+  \item Formation professionnelle : organisation et intervention dans plusieurs
+    écoles d'été.
+  \end{itemize}\vspace{-1em}\strut
+}
 
-\cvitem{Communication scientifique}{Articles et présentations dans des revues et conférences
-  internationales, \begin{itemize}
+\
+
+\cvitem{Communication scientifique}{\theBibIndex\ articles et présentations dans
+  des revues et conférences internationales, ainsi que \begin{itemize}
   \item Relecture d'articles pour les revues \textit{Nuclear Science and
       Engineering}, \textit{Annals of Nuclear Energy}, \textit{European Physical
-    Journal in Nuclear Sciences \& Technologies}.
+    Journal in Nuclear Sciences \& Technologies} ;
   \item Membre du comité de programme des workshops \& conférences :
     \begin{itemize}
     \item \textit{Numerical Software Verification} (NSV 2017),
     \item \textit{Euro-Par} 2019,
-    \item \textit{Numerical Reproducibility at Exascale} (NRE 2019).
+    \item \textit{Numerical Reproducibility at Exascale} (NRE 2019) ;
     \end{itemize}
   \item \textit{Panelist} pour le workshop \textit{Numerical
       Reproduciblity at Exascale} 2019.
@@ -177,19 +191,45 @@
 \cvitem{Chaîne industrielle}{%
   Développement dans la future chaîne de calcul des c{\oe}urs \textsc{Cocagne} :
   \begin{itemize}
-  \item Solveurs d'évolution des concentrations isotopiques,
-  \item Méthodes de reconstruction fine du flux,
+  \item Solveurs d'évolution des concentrations isotopiques (modèle général,
+    modèle spécifique aux chaînes Xénon et Samarium),
+  \item Méthodes de reconstruction fine du flux pour la diffusion neutronique,
   \item Fonctionnalités de \textit{rod cusping} pour les calculs
-    instationnaires.
+    instationnaires en diffusion.
   \end{itemize}\vspace{-1em}\strut
 }
 
-\cvitem{Schémas avancés}{\vspace{-0.85em}\begin{itemize}
+\cvitem{Schémas avancés}{%
+  Développement de solveurs pour l'équation de Boltzmann :
+  \begin{itemize}
   \item Mise au point de la méthode d'accélération du solveur de transport
     3D cartésien \textsc{Domino},
-  \item Développement du solveur de transport 3D en géométries non structurées \textsc{Micado}.
+  \item Développement du solveur de transport 3D en géométries non structurées
+    \textsc{Micado}.
   \end{itemize}\vspace{-1em}\strut
 }
+
+\subsection{Gestion d'activités \& projets techniques}
+
+\cvitem{Schémas avancés en neutronique}{%
+  Responsable du lot ``Solveurs'' du projet (2017--2018) :
+  \begin{itemize}
+  \item Réalisation de la feuille de route de développement des solveurs de
+    neutronique pour la période 2019--2023 (800k€ sur 5~ans) ;
+  \item Coordination des plans de R\&D relatifs aux solveurs neutroniques avec
+    Framatome.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\cvitem{Performance et Qualité des Simulations}{%
+  Responsable du lot ``Sujets Exploratoires et Méthodes Avancées'' (2015--2019) :
+  \begin{itemize}
+  \item Organisation et suivi des activités du lot (2 thèses), en relation avec
+    les acteurs d'autres départements d'EDF.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\newpage
 
 \section{Développement logiciel}
 
@@ -320,8 +360,8 @@
   \end{itemize}
 }
 
-\cventry{2017}{Ecole d'été PRECIS {\footnotesize(Précision et REproductibilité en Calcul
-  Informatique et Scientifique)}}{3h}{}{}{%
+\cventry{2017}{Ecole d'été PRECIS {\footnotesize(Précision et REproductibilité
+    en Calcul Informatique et Scientifique)}}{3h}{}{}{%
   Intervention lors d'une école d'été organisée par le groupe ``Calcul'' du CNRS
   :
   \begin{itemize}
@@ -333,33 +373,37 @@
 
 \subsection{Encadrement de doctorants}
 
-\cvitem{Wesley Ford\\(2016--)}{{\bfseries Vers des méthodes d'accélération
-    stables et efficaces en contextes parallèles appliquées à l'équation du
-    transport des neutrons}~:\begin{itemize}
+\cventry{Wesley Ford\\(2016--)}{\bfseries Vers des méthodes d'accélération
+  stables et efficaces en contextes parallèles appliquées à l'équation du
+  transport des neutrons}{}{}{}{%
+  \begin{itemize}
   \item Directeur : Christophe Calvin (CEA, Maison de la Simulation).
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
-\cvitem{Romain Picot\\(2015--2018)}{{\bfseries Vérification numérique de
-    logiciels de calculs industriels}~:\begin{itemize}
+\cventry{Romain Picot\\(2015--2018)}{\bfseries Vérification numérique de
+  logiciels de calculs industriels}{}{}{}{%
+  \begin{itemize}
   \item Directrice : Fabienne Jézéquel (Université Pierre et Marie Curie, Paris 6).
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
-\cvitem{Rebecca Jeffers\\(2013--2016)}{{\bfseries\itshape Goal Based Coupled
-    Adaptive Mesh Refinement (AMR) and angular adaptivity on Cartesian Meshes
-    for Modelling Neutron Transport in PWR Reactor Cores}~:\begin{itemize}
+\cventry{Rebecca Jeffers\\(2013--2016)}{\bfseries\itshape Goal Based Coupled
+  Adaptive Mesh Refinement (AMR) and angular adaptivity on Cartesian Meshes for
+  Modelling Neutron Transport in PWR Reactor Cores}{}{}{}{%
+  \begin{itemize}
   \item Directeur : Matthew D. Eaton (Imperial College London).
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
-\cvitem{\hspace{-5em}Marc-André Lajoie\\(2011--2017)}{{\bfseries Développement
-    d’un schéma de calcul prismatique généralisé parallèle en transport
-    déterministe hétérogène 3-D}~:\begin{itemize}
+\cventry{\hspace{-5em}Marc-André Lajoie\\(2011--2017)}{\bfseries Développement
+  d’un schéma de calcul prismatique généralisé parallèle en transport
+  déterministe hétérogène 3-D}{}{}{}{%
+  \begin{itemize}
   \item Co-directeur : Guy Marleau (École Polytechnique de Montréal).
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
 \subsection{Encadrement de stagiaires}
 
-\cvitem{Morgane Steins\\(2018)}{{\bfseries Amélioration de la convergence
-    spatiale des éléments finis en neutronique.}
+\cventry{Morgane Steins\\(2018)}{Amélioration de la convergence spatiale des
+  éléments finis en neutronique}{}{}{}{%
   \begin{itemize}
   \item Utilisation de techniques d'analyse d'erreur \textit{a posteriori} pour
     améliorer la convergence spatiale des calculs en éléments finis de
@@ -367,53 +411,53 @@
   \item Application à la neutronique : amélioration du calcul des intégrales du
     flux cellule par cellule pour la reconstruction fine de puissance ;
   \item Expérimentation numérique en langage Julia.
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
-\cvitem{Mehdi Ouafi\\(2017)}{{\bfseries Conditionnement des problèmes
-    d'optimisation de la production hydraulique}
+\cventry{Mehdi Ouafi\\(2017)}{Conditionnement des problèmes d'optimisation de la
+  production hydraulique}{}{}{}{%
   \begin{itemize}
   \item Etude des liens entre conditionnement des matrices de contraintes et
     performance de la résolution des problèmes d'optimisation.
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
-\cvitem{Louis Denoix\\(2017)}{{\bfseries Stabilité numérique des algorithmes
-    d'optimisation}.
+\cventry{Louis Denoix\\(2017)}{Stabilité numérique des algorithmes
+  d'optimisation}{}{}{}{%
   \begin{itemize}
   \item Analyse de la qualité numérique du solveur d'optimisation SoPlex à
     l'aide de l'outil Verrou.
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
-\cvitem{Chou Xiaochen\\(2016)}{{\bfseries Gestion des erreurs numériques dans
-    les problèmes de planification hydraulique.}
+\cventry{Chou Xiaochen\\(2016)}{Gestion des erreurs numériques dans
+  les problèmes de planification hydraulique}{}{}{}{%
   \begin{itemize}
   \item Analyse de l'impact de l'arithmétique flottante sur la faisabilité et la
     performance de résolution des problèmes de planification de la production
     hydraulique.
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
-\cvitem{Guy Augarde\\(2015)}{{\bfseries Exploration du potentiel du langage
-    Julia pour le calcul scientifique.}
+\cventry{Guy Augarde\\(2015)}{Exploration du potentiel du langage Julia pour le
+  calcul scientifique}{}{}{}{%
   \begin{itemize}
   \item Développement d'une bibliothèque d'algèbre linéaire par blocs
     hiérarchiques en langage Julia.
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
-\cvitem{Salli Moustafa\\(2013)}{{\bfseries Vectorisation d'un algorithme de
-    transport neutronique en géométries prismatiques.}
+\cventry{Salli Moustafa\\(2013)}{Vectorisation d'un algorithme de transport
+  neutronique en géométries prismatiques}{}{}{}{%
   \begin{itemize}
   \item Amélioration des performances du solveur en utilisant les unités de
     calcul SSE / AVX,
   \item Utilisation de la bibliothèque C++ Eigen pour le développement de code
     vectorisé performant et portable.
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
-\cvitem{Ulrick Séverin\\(2012)}{{\bfseries Intégration fine du flux dans la
-    plate-forme \textsc{Cocagne}}
+\cventry{Ulrick Séverin\\(2012)}{Intégration fine du flux dans la plate-forme
+  \textsc{Cocagne}}{}{}{}{%
   \begin{itemize}
   \item Mise au point et application d'une méthodologie de validation des
     techniques de reconstruction fine du flux dans la plate-forme de neutronique
     \textsc{Cocagne}.
-  \end{itemize}\vspace{-1em}\strut}
+  \end{itemize}}
 
 \newpage
 
@@ -421,9 +465,6 @@
 
 % \input{biblio}
 \bibliographystyle{moderncv}
-\newtotcounter{NbRefs}
-\newcounter{BibIndex}
-\setcounter{BibIndex}{\totvalue{NbRefs}}
 \newcommand{\bibindex}{\theBibIndex\addtocounter{BibIndex}{-1}\stepcounter{NbRefs}}
 % \bibliography{../publications/biblio}
 
