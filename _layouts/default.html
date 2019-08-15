@@ -13,10 +13,10 @@
     <!-- Font awesome -->
     <link rel="stylesheet"
           href="{{"/assets/font-awesome/css/font-awesome.min.css"|relative_url}}">
-    
+
     <link rel="stylesheet"
           href="{{"/assets/style.css"|relative_url}}">
-    
+
     <title>
       {% if page.title %}
       {{   page.title | escape }} -
@@ -29,7 +29,7 @@
           content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   </head>
-  
+
   <body>
     <header>
       <nav class="navbar navbar-toggleable-sm navbar-inverse bg-primary">
@@ -45,7 +45,7 @@
         <a class="navbar-brand"
            href="{{ "/" | relative_url}}">
           {{ site.title | escape }}</a>
-        
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             {% for n in site.nav %}
@@ -63,33 +63,28 @@
         </div>
         </div>
       </nav>
-      
+
       <div>
       </div>
     </header>
-    
+
     <main class="container">
       {{ content }}
     </main>
-    
+
     <footer class="footer">
       <div class="container">
         <div class="row">
           <div class="col-sm-6 footer-box">
             <h1>Contact</h1>
             <div><i class="fa fa-envelope footer-icon" aria-hidden="true"></i>
-              francois.fevotte<i class="fa fa-at" aria-hidden="true"></i>edf.fr
-            </div>
-            <div><i class="fa fa-phone footer-icon" aria-hidden="true"></i>
-              (+33) 1 78 19 44 23
+              ff<i class="fa fa-at" aria-hidden="true"></i>triscale-innov.com
             </div>
             <div><i class="fa fa-home footer-icon" aria-hidden="true"></i>
-              EDF Lab Paris Saclay
+              TriScale innov
             </div>
             <div><span class="footer-icon"></span>
-              Département PERICLES</div>
-            <div><span class="footer-icon"></span>
-              7 bd Gaspard Monge</div>
+              7 rue de la Croix Martre</div>
             <div><span class="footer-icon"></span>
               91120 Palaiseau</div>
           </div>
@@ -114,11 +109,11 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12 text-muted text-right">&copy; François Févotte 2017</div>
+          <div class="col-sm-12 text-muted text-right">&copy; François Févotte 2017-2019</div>
         </div>
       </div>
     </footer>
-    
+
 
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
             integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
