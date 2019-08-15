@@ -1,0 +1,236 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <style type="text/css">
+      .has-success .form-control {
+        color: #2b542c;
+        background-color: #dff0d8;
+      }
+
+      .has-error .form-control {
+        color: #843534;
+        background-color: #f2dede;
+      }
+
+      #marks .form-control {
+        padding: 0;
+        text-align: center;
+      }
+    </style>
+
+    <title>Calculatrice de moyennes AMS</title>
+  </head>
+
+  <body ng-app="optimAMS" ng-controller="ctrl" class="container-fluid">
+    <h1>Calculatrice de moyennes AMS</h1><h2>(version: {{version}})</h2>
+
+    <form style="margin-top: 3em">
+      <table class="table form-group">
+        <tr>
+          <td style="vertical-align: bottom;">
+            <label>Copier&nbsp;coller&nbsp;depuis&nbsp;Excel&nbsp;:</label>
+          </td>
+          <td style="width: 100%">
+            <input type="text" class="form-control" ng-model="fromXls"></input>
+          </td>
+          <td>
+            <button class="btn btn-default" ng-click="import()">Importer</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <table class="table table-condensed"
+           style="text-align:center; margin-top: 3em;"
+           id="marks">
+      <tr>
+        <td ng-repeat="c in courses">
+          {{c.title}}
+        </td>
+        <td style="font-weight:bold">
+          MOYENNE</td>
+      </tr>
+      <tr>
+        <td ng-repeat="c in courses">
+          {{c.weight}}
+        </td>
+        <td style="font-weight:bold">(ECTS)</td>
+      </tr>
+      <tr>
+        <td ng-repeat="c in courses"
+            class="{{c.keep ? (c.mark >= 10 ? 'has-success' : 'has-error') : ''}}">
+          <input ng-model="c.mark" class="form-control" ng-change="update()"></input>
+        </td>
+        <td style="font-weight:bold"
+            class="{{best.weight ? '' : 'danger'}}">
+          {{best.average.toFixed(2)}} ({{best.weight}})
+        </td>
+      </tr>
+    </table>
+    <script>
+function Course (title, weight, mark) {
+    this.title  = title;
+    this.weight = weight;
+    this.mark   = mark || "";
+    this.keep   = false;
+}
+
+function cmpCourses (a, b) {
+    if (a.weight < b.weight)
+        return 1;
+    if (a.weight == b.weight) {
+        if (a.mark < b.mark)
+            return 1;
+        if (a.mark == b.mark)
+            return 0;
+    }
+    return -1;
+}
+
+function courseByIndex (a, b) {
+    return a.index > b.index;
+}
+
+
+function Node (sum, last) {
+    this.sum = sum;
+    this.last = last;
+}
+
+function initNodes (nCourses, maxWeight) {
+    var node = new Array (nCourses+1);
+    for (var c = 0 ; c<=nCourses ; ++c)
+        node[c] = new Array (maxWeight+1);
+
+    node[0][0] = new Node (0, 0);
+    return node;
+}
+
+function updateCourses (courses, node, w) {
+    var nCourses = courses.length;
+    for (var c = nCourses ; c > 0 ; c--) {
+        var n = node[c][w];
+        if (n.last < w)
+            courses[c-1].keep = true;
+        w = n.last;
+    }
+}
+
+function optimalGrades (courses, targetWeight) {
+    var begin = Date.now();
+
+    var nCourses = courses.length;
+    for (var c = 0 ; c < nCourses ; ++c) {
+        courses[c].weight = Number (courses[c].weight);
+        courses[c].keep = false;
+        courses[c].index = c;
+    }
+    courses.sort (cmpCourses);
+
+    var maxWeight = targetWeight + courses[0].weight - 1;
+    var node = initNodes (nCourses, maxWeight);
+
+    for (var c = 0 ; c < nCourses ; ++c) {
+        for (var w = 0 ; w <= maxWeight ; ++w) {
+            var n = node[c][w];
+            if (n) {
+                if (w < targetWeight && courses[c].mark) {
+                    var w2 = w + courses[c].weight;
+                    var s2 = n.sum + courses[c].weight * courses[c].mark;
+                    var n2 = node[c+1][w2];
+                    if (n2 === undefined || s2 > n2.sum)
+                        node[c+1][w2] = new Node (s2, w);
+                }
+
+                n2 = node[c+1][w];
+                if (n2 === undefined || n.sum > n2.sum) {
+                    node[c+1][w] = new Node (n.sum, w);
+                }
+            }
+        }
+    }
+
+    var best = {average: 0,
+                weight:  0};
+    for (var w = targetWeight ; w <= maxWeight ; ++w) {
+        var n = node[nCourses][w];
+        if (n) {
+            n.average = n.sum / w;
+            n.weight  = w;
+            if (n.average > best.average)
+                best = n;
+        }
+    }
+
+    if (best.weight > 0)
+        updateCourses (courses, node, best.weight);
+
+    courses.sort (courseByIndex);
+
+    var end = Date.now();
+    console.log ("Optimization took", end-begin, "ms.");
+
+    return best;
+}
+
+var app = angular.module('optimAMS', []);
+app.controller('ctrl', function($scope) {
+    $scope.update = function () {
+        $scope.best = optimalGrades ($scope.courses, 30);
+    };
+
+    $scope.import = function () {
+        var marks = $scope.fromXls.split("\t");
+
+        for (var i = 0 ; i<$scope.courses.length ; ++i) {
+            $scope.courses[i].mark = i<marks.length ?
+                marks[i].replace(",", ".") : "";
+        }
+        $scope.update();
+    };
+
+    $scope.version = "jury S1 2018-2019"
+    $scope.courses = [
+        new Course ("AMS 301", 7),
+        new Course ("AMS 302", 4),
+        new Course ("AMS 303", 4),
+        new Course ("AMS 304", 4),
+        new Course ("AMS 305", 4),
+        new Course ("AMS 306", 4),
+        new Course ("AMS 307", 4),
+        new Course ("AMS 308", 4),
+        new Course ("AMS 309", 4),
+        new Course ("C01",     4),
+        new Course ("C02",     4),
+        new Course ("I01",     4),
+        new Course ("I03",     4),
+        new Course ("I04",     4),
+        new Course ("I05",     4),
+        new Course ("I07",     3),
+        new Course ("V01",     4),
+        new Course ("V02",     4),
+        new Course ("V03",     4),
+        new Course ("V04",     4),
+        new Course ("V05",     4),
+        new Course ("O1",      5),
+        new Course ("O2",      5),
+        new Course ("O3",      5),
+        new Course ("O4",      5),
+        new Course ("O6",      5),
+        new Course ("O7",      5),
+        new Course ("O8",      5),
+        new Course ("X01",     4),
+        new Course ("X02",     4),
+        new Course ("AAG",    10),
+    ];
+
+    $scope.update();
+});
+    </script>
+  </body>
+</html>
