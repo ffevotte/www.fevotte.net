@@ -51,7 +51,7 @@ in industrial scientific computing codes.
   acceleration methods in parallel contexts for the neutron transport equation",
   director: Christophe Calvin.
 
-- **Romain Picot**, PhD student (2015-present), "Numerical verification of
+- **Romain Picot**, PhD student (2015-2018), "Numerical verification of
   industrial scientific computing codes",
   director: [Fabienne Jézéquel](http://www-pequan.lip6.fr/~jezequel/index.html).
 
