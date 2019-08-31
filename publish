@@ -1,0 +1,51 @@
+#!/bin/bash
+
+GITHUB="https://github.com/ffevotte/ffevotte.github.io.git"
+USERNAME="François Févotte"
+USEREMAIL="fevotte@gmail.com"
+
+if [ ! -r _config.yml ]; then
+   echo "Not in the correct directory" 1>&2
+   exit 1
+fi
+
+REPDIR=${PWD}
+TMPDIR=$(mktemp -d)
+
+(  cd ${TMPDIR}
+   git clone --branch src ${REPDIR} website
+   cd website
+   git remote add github ${GITHUB}
+   git config user.name  ${USERNAME}
+   git config user.email ${USEREMAIL}
+   SHA1=$(git rev-parse HEAD)
+
+   git clone --branch master ${REPDIR} _site
+   rm -rf _site/*
+
+   make || exit 1
+
+   ( cd _site
+     git remote add github ${GITHUB}
+     git config user.name  ${USERNAME}
+     git config user.email ${USEREMAIL}
+     git add .
+     git status
+     git commit -m "Updated to ${SHA1}"
+
+     (sleep 1 && firefox --private-window http://localhost:1234/)&
+     xterm -e "python -m SimpleHTTPServer 1234"&
+     xterm&
+   )
+
+   if ! zenity --question --title="Continue?" --text="Push this version to the server?"; then
+       exit 2
+   fi
+
+   git push github src
+   (cd _site; git push github master)
+)
+RET=$?
+
+rm -rf ${TMPDIR}
+exit ${RET}
