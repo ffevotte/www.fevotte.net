@@ -18,17 +18,23 @@ TMPDIR=$(mktemp -d)
    git remote add github ${GITHUB}
    git config user.name  ${USERNAME}
    git config user.email ${USEREMAIL}
+   git remote update
+   git merge --ff-only github/src || exit 3
    SHA1=$(git rev-parse HEAD)
 
    git clone --branch master ${REPDIR} _site
-   rm -rf _site/*
-
-   make || exit 1
-
    ( cd _site
      git remote add github ${GITHUB}
      git config user.name  ${USERNAME}
      git config user.email ${USEREMAIL}
+     git remote update
+     git merge --ff-only github/master || exit 3
+   )
+
+   rm -rf _site/*
+   make || exit 1
+
+   ( cd _site
      git add .
      git status
      git commit -m "Updated to ${SHA1}"
