@@ -1,7 +1,7 @@
 ---
 title: Teaching
 layout: page
-permalink: /teaching
+permalink: /teaching/
 excerpt:   List of courses taught by François Févotte
 ---
 
