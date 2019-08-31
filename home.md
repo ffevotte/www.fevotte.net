@@ -2,6 +2,14 @@
 layout: page
 permalink: /
 sitemap-priority: 1.0
+excerpt: >
+  Professional website of François Févotte. My interest lies in the performance
+  and quality of numerical simulations. Such simulations are used more and more
+  everyday, not only as numerical experiments helping understand physics, but
+  also as input for decision-makers. It is therefore equally important that
+  simulations meet the performance level required by their use in industrial
+  contexts, but also that the results are precise enough to get confidence in
+  the decisions that are taken based on them.
 ---
 
 # Research interests
