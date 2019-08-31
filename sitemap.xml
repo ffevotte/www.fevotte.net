@@ -21,4 +21,11 @@
     {% endif %}
   </url>
   {% endfor %}
+  {% for document in site.static_files %}
+  {%   if document.path contains '/publications/' %}
+  <url>
+    <loc>{{ site.url }}{{ document.path }}</loc>
+  </url>
+  {%   endif %}
+  {% endfor %}
 </urlset>
