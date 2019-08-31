@@ -18,11 +18,14 @@
 
 \name{François}{Févotte}
 \title{Mathématiques appliquées et \mbox{calcul scientifique à haut rendement}}
-\address{TriScale Innov}{7 rue de la Croix Martre}{91120 Palaiseau}
+\address{%
+  TriScale Innov}{%
+  7 rue de la Croix Martre}{%
+  91120 Palaiseau}
 %\phone[mobile]{+1~(234)~567~890}
 %\phone[fixed]{(+33)~1~78~19~44~23}
 %\phone[fax]{+3~(456)~789~012}
-\email{ff@triscale-innov.fr}
+\email{francois.fevotte@triscale-innov.fr}
 %\homepage{www.johndoe.com}
 \social[linkedin]{ffevotte}
 %\social[twitter]{jdoe}
@@ -42,7 +45,7 @@
 
 \section{Expérience Professionnelle}
 
-\cventry{depuis 2019}{Co-fondateur \& CTO}{TriScale Innov}{}{}{}
+\cventry{depuis 2019}{Co-fondateur \& Directeur Scientifique}{TriScale Innov}{}{}{}
 
 \cventry{depuis 2008}{Ingénieur Chercheur}{EDF R\&D, dept PERICLES, groupe Analyse et
   Modèles Numériques}{}{}{
@@ -102,14 +105,14 @@
   \end{itemize}
 }
 
-\cventry{2004--2005}{Master Modélisation et Simulation}{INSTN}{Saclay}{}{}
-
 \cventry{2002--2005}{Ingénieur}{École Nationale Supérieure de Techniques Avancées (ENSTA)}{}{}{
   \begin{description}
   \item[Spécialité ``modélisation des systèmes physiques'' :] calcul
     scientifique et parallèle, commande des systèmes, optimisation
     différentiable, physique des réacteurs, propagation des ondes.
   \end{description}}
+
+\cventry{2004--2005}{Master Modélisation et Simulation}{INSTN}{Saclay}{}{}
 
 \section{Prix et distinctions}
 
@@ -251,7 +254,7 @@
     #5
   }}
 
-\OSproject{Verrou}{C++ (9k lignes)}{15}{3}{%
+\OSproject{Verrou}{C (9k lignes)}{15}{3}{%
   Outil de diagnostic \& déboguage des problèmes liés à l'arithmétique flottante
   dans les codes de calcul scientifique.
   \begin{itemize}
@@ -270,11 +273,13 @@
   \end{itemize}
 }
 
-\OSproject{StochasticArithmetic.jl}{Julia (1k lignes)}{5}{2}{\qquad%
-  Paquet implémentant l'arithmétique stochastique en langage Julia.
+\OSproject{AccurateArithmetic.jl}{Julia (2k lignes)}{10}{4}{\quad%
+  Implémentation performante d'algorithmes compensés vectorisés en langage Julia.
   \begin{itemize}
   \item Développeur principal
-  \item \url{https://github.com/ffevotte/StochasticArithmetic.jl}
+  \item Performance comparable à OpenBLAS pour la somme et le produit scalaire
+    sur architectures AVX-2 \& AVX-512
+  \item \url{https://github.com/JuliaMath/AccurateArithmetic.jl}
   \end{itemize}
 }
 
@@ -295,7 +300,8 @@
     implémentation
   \item Méthode numérique à l'état de l'art pour les algorithmes de
     \textit{splitting} 2D--1D
-  \item Parallélisme à 3 niveaux : MPI, tbb, SIMD
+  \item Parallélisme à 3 niveaux : mémoire distribuée (MPI) \& partagée (tbb),
+    SIMD (Eigen)
   \end{itemize}
 }
 
@@ -468,6 +474,9 @@
 \newcommand{\bibindex}{\theBibIndex\addtocounter{BibIndex}{-1}\stepcounter{NbRefs}}
 % \bibliography{../publications/biblio}
 
+\subsection{\itshape Preprints}\vspace{0.5em}
+\input{biblio-unpublished.bbl}
+
 \subsection{Journaux}\vspace{0.5em}
 \input{biblio-article.bbl}
 
@@ -476,8 +485,5 @@
 
 \subsection{Thèse}\vspace{0.5em}
 \input{biblio-phdthesis.bbl}
-
-\subsection{\itshape Preprints}\vspace{0.5em}
-\input{biblio-unpublished.bbl}
 
 \end{document}
