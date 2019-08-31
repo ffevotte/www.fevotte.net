@@ -2,12 +2,15 @@ MAIN = cv.tex
 DOC  = $(MAIN:.tex=.pdf)
 
 .PHONY: $(DOC)
-$(DOC): biblio.tex
+$(DOC): biblio
 	latexmk -pdf $(MAIN)
 	cp $(DOC) ../cv
 
-continuous: biblio.tex
+continuous: biblio
 	latexmk -pdf -pvc $(MAIN)
+
+biblio:
+	./makebib.sh
 
 clean:
 	latexmk -c $(MAIN)

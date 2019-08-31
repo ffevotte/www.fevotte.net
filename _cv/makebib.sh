@@ -1,6 +1,6 @@
 #! /bin/bash
 
-rm -rf biblio-* bibtype-*
+rm -rf biblio-*.tex bibtype-*
 grep @ ../publications/biblio.bib |
     perl -pne 's/@//;' -e 's/{/ /;' -e 's/,//;' |
     tac |

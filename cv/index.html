@@ -1,0 +1,16 @@
+---
+title:  CV
+layout: page
+---
+
+<script>
+  function PDFresize (iframe) {
+    iframe.style.height = 1.414*iframe.offsetWidth + 'px';
+  }
+</script>
+
+<iframe src="cv.pdf"
+        width="100%" height="1000px"
+        onload="PDFresize(this)"
+        onresize="PDFresize(this)">
+</iframe>
