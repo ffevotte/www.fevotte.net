@@ -1,8 +1,8 @@
 #!/bin/bash
 
-GITHUB="https://github.com/ffevotte/ffevotte.github.io.git"
 USERNAME="François Févotte"
 USEREMAIL="fevotte@gmail.com"
+TARGET="$1"
 
 if [ ! -r _config.yml ]; then
    echo "Not in the correct directory" 1>&2
@@ -13,43 +13,50 @@ REPDIR=${PWD}
 TMPDIR=$(mktemp -d)
 
 (  cd ${TMPDIR}
-   git clone --branch src ${REPDIR} website
+   git clone --branch master ${REPDIR} website
    cd website
-   git remote add github ${GITHUB}
    git config user.name  ${USERNAME}
    git config user.email ${USEREMAIL}
-   git remote update
-   git merge --ff-only github/src || exit 3
    SHA1=$(git rev-parse HEAD)
 
-   git clone --branch master ${REPDIR} _site
+   # Resetting modification dates
+   for FILE in $(git ls-files); do
+       DATE=$(git log --pretty=%at -n1 -- "$FILE")
+       touch -d @0"$DATE" "$FILE"
+       ls -lh "$FILE"
+   done
+
+   git clone --branch html ${REPDIR} _site
    ( cd _site
-     git remote add github ${GITHUB}
      git config user.name  ${USERNAME}
      git config user.email ${USEREMAIL}
      git remote update
-     git merge --ff-only github/master || exit 3
+     git merge --no-commit origin/master
    )
 
    rm -rf _site/*
    make || exit 1
 
-   ( cd _site
-     git add .
-     git status
-     git commit -m "Updated to ${SHA1}"
+   cd _site
+   git add .
+   git status
+   git commit -m "Updated to ${SHA1}"
 
-     (sleep 1 && firefox --private-window http://localhost:1234/)&
-     xterm -e "python -m SimpleHTTPServer 1234"&
-     xterm&
-   )
+   (sleep 1 && firefox --private-window http://localhost:1234/)&
+   python -m SimpleHTTPServer 1234 & SERVER=$!
 
-   if ! zenity --question --title="Continue?" --text="Push this version to the server?"; then
+   zenity --question --title="Continue?" --text="Push this version to the server?"
+   CONFIRM=$?
+   kill $SERVER >/dev/null 2>&1
+
+   if [ "$CONFIRM" -ne 0 ]; then
        exit 2
    fi
 
-   git push github src
-   (cd _site; git push github master)
+   git push origin html
+
+   rm -rf .git
+   rsync -avz --delete ./ $TARGET
 )
 RET=$?
 
