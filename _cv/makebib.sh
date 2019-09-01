@@ -14,5 +14,11 @@ grep @ ../publications/biblio.bib |
     done
 
 for FILE in biblio-*.tex; do
-    latexmk -pdf $FILE
+    echo -n "Processing $FILE..."
+    if latexmk -pdf $FILE >/dev/null 2>&1; then
+        echo " done."
+    else
+        echo -e "\n$FILE:1: ERROR!"
+        exit 1
+    fi
 done
