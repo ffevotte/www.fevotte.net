@@ -55,7 +55,7 @@ in industrial scientific computing codes.
 
 # Students
 
-- **Wesley Ford**, PhD student (2016-present), "Towards stable and efficient
+- **Wesley Ford**, PhD student (2016-2019), "Towards stable and efficient
   acceleration methods in parallel contexts for the neutron transport equation",
   director: Christophe Calvin.
 
