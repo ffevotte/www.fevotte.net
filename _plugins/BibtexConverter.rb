@@ -23,6 +23,8 @@ module Jekyll
     end
   end
 
+  require 'tmpdir'
+
   class BibtexGenerator < Generator
     safe true
 

@@ -1,5 +1,6 @@
 all: cv assets/font-awesome
-	bundle install --path vendor/bundle
+	bundle config set path "vendor/bundle"
+	bundle install
 	bundle exec jekyll build
 
 .PHONY: cv
