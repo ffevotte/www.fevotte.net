@@ -1,11 +1,14 @@
-all: cv assets/font-awesome
+export PATH := $(PATH):~/projects/www/bibtex2html-1.98-linux/
+
+build: deps
 	bundle config set path "vendor/bundle"
 	bundle install
 	bundle exec jekyll build
 
-serve:
-	@ echo "http://localhost:8765"
-	@ cd _site && python2 -m SimpleHTTPServer 8765
+serve: deps
+	bundle exec jekyll serve
+
+deps: cv assets/font-awesome
 
 .PHONY: cv
 cv:
