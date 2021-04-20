@@ -43,7 +43,7 @@ TMPDIR=$(mktemp -d)
    git commit -m "Updated to ${SHA1}"
 
    (sleep 1 && firefox --private-window http://localhost:1234/)&
-   python -m SimpleHTTPServer 1234 & SERVER=$!
+   python2 -m SimpleHTTPServer 1234 & SERVER=$!
 
    zenity --question --title="Continue?" --text="Push this version to the server?"
    CONFIRM=$?
@@ -56,7 +56,7 @@ TMPDIR=$(mktemp -d)
    git push origin html
 
    rm -rf .git
-   rsync -avz --delete ./ $TARGET
+   rsync -avz ./ $TARGET
 )
 RET=$?
 

@@ -55,6 +55,11 @@ in industrial scientific computing codes.
 
 # Students
 
+- **Ari Rappaport**, PhD student (2021-), "Adaptivity in model, linear &
+  nonlinear solvers. Application to transfer problems in underground storage
+  systems", director: [Martin
+  Vohralı́k](https://who.rocq.inria.fr/Martin.Vohralik/index.html).
+
 - **Wesley Ford**, PhD student (2016-2019), "Towards stable and efficient
   acceleration methods in parallel contexts for the neutron transport equation",
   director: Christophe Calvin.
