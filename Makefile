@@ -8,6 +8,10 @@ build: deps
 serve: deps
 	bundle exec jekyll serve
 
+.PHONY: clean
+clean:
+	$(RM) .bundle .jekyll-metadata .sass-cache Gemfile.lock
+
 deps: cv assets/font-awesome
 
 .PHONY: cv

@@ -1,0 +1,497 @@
+\documentclass{moderncv}
+\usepackage[a4paper,hmargin=1.5cm,vmargin={1.5cm, 2cm}]{geometry}
+\usepackage[utf8]{inputenc}
+\moderncvstyle{ff}
+%\moderncvstyle{classic}
+\moderncvcolor{blue}
+\usepackage{XCharter}
+\usepackage{fixltx2e}
+\usepackage{totcount}
+
+\setlength{\hintscolumnwidth}{2.8cm} % width of the column with the dates
+
+\nopagenumbers{} % to suppress automatic page numbering for CVs longer than one page
+
+\usepackage{enumitem}
+\setlist[description]{font=\normalfont\itshape}
+\setlist[itemize]{noitemsep,nosep}
+
+\name{François}{Févotte}
+\title{Mathématiques appliquées et \mbox{calcul scientifique à haut rendement}}
+\address{%
+  TriScale Innov}{%
+  7 rue de la Croix Martre}{%
+  91120 Palaiseau}
+%\phone[mobile]{+1~(234)~567~890}
+%\phone[fixed]{(+33)~1~78~19~44~23}
+%\phone[fax]{+3~(456)~789~012}
+\email{francois.fevotte@triscale-innov.com}
+%\homepage{www.johndoe.com}
+\social[linkedin]{ffevotte}
+%\social[twitter]{jdoe}
+\social[github]{ffevotte}
+%\extrainfo{additional information}
+%\photo[64pt][0.4pt]{picture}
+%\quote{Some quote}
+
+
+\newcommand{\verrou}{\href{http://github.com/edf-hpc/verrou}{\textsc{Verrou}}}
+
+\begin{document}
+\makecvtitle
+\newtotcounter{NbRefs}
+\newcounter{BibIndex}
+\setcounter{BibIndex}{\totvalue{NbRefs}}
+
+\section{Expérience Professionnelle}
+
+\cventry{depuis 2019}{Co-fondateur \& Directeur Scientifique}{TriScale innov}{}{}{}
+
+\cventry{depuis 2007}{Enseignement}{ENSTA {\em et} Université Paris Saclay}{}{}{%
+  \begin{itemize}
+  \item \textit{Introduction à la discrétisation des EDP} :
+    1\textsuperscript{ère}~année~ENSTA, chargé de TD (resp: P. Joly) ;
+  \item \textit{La méthode des éléments finis} :
+    2\textsuperscript{ème}~année~ENSTA, chargé de TD (resp: S. Fliss) ;
+  \item \textit{Modélisation et simulation du transport de particules neutres} :
+    Master Analyse, Modélisation et \mbox{Simulation} (AMS), co-responsable avec
+    G. Samba (CEA) ;
+  \item Membre du conseil de perfectionnement de l'université Paris Saclay.
+  \end{itemize}
+}
+
+\cventry{2008--2019}{Ingénieur Chercheur}{EDF R\&D, dept PERICLES, groupe Analyse et
+  Modèles Numériques}{}{}{
+  \begin{description}
+  \item[Future Chaîne de Calcul des C{\oe}urs]: développement de solveurs pour
+    la plate-forme de simulation neutronique \textsc{Cocagne}, membre du comité de
+    suivi d'\textsc{Apollo3} dans l'Institut Tri-Partite EDF--CEA--AREVA (I3P) ;
+  \item[Performance et Qualité des Simulations]: reponsable du lot ``sujets
+    exploratoires et méthodes avancées'', développement de l'outil \verrou{}
+    pour la qualité numérique des outils de calcul ;
+  \item[Écoles d'été CEA--EDF--Inria]: membre du comité exécutif, représentant
+    EDF pour l'analyse numérique.
+  \end{description}
+}
+
+\cventry{2005\\\footnotesize(6 mois)}{Stage de fin d'études}{AREVA NP,
+  département Développement}{}{}{%
+  \begin{itemize}
+  \item Développement d'un modèle de sections efficaces pour la simulation
+    neutronique des c{\oe}urs de réacteurs nucléaires à haute température
+    (GTMHR).
+  \item Utilisation des codes de calcul du CEA : \textsc{Apollo}2,
+    \textsc{Cronos}2
+  \end{itemize}
+}
+
+\cventry{2004\\\footnotesize(4 mois)}{Stage de recherche}{Univ. de Californie, Santa Barbara
+  (UCSB), dept. Génie Chimique}{}{}{%
+  \begin{itemize}
+  \item Analyse de sensibilité d'un processus de granulation
+  \item Développement d'une méthode de contrôle de la distribution de tailles de
+    granulats produits.
+  \end{itemize}
+}
+
+\section{Formation}
+
+\cventry{2005--2008}{Thèse}{Commissariat à l'Énergie Atomique}{Saclay}{}{
+  \textit{Sujet} : Simulation du transport des neutrons avec la méthode des
+  caractéristiques.\\
+  \textit{Encadrement} : Richard Sanchez, Simone Santandrea
+  \begin{itemize}
+  \item Développements intégrés dans le solveur TDT du code \textsc{Apollo2}.
+  \end{itemize}
+}
+
+\cventry{2002--2005}{Ingénieur}{École Nationale Supérieure de Techniques Avancées (ENSTA)}{}{}{
+  \begin{description}
+  \item[Spécialité ``modélisation des systèmes physiques'' :] calcul
+    scientifique et parallèle, commande des systèmes, optimisation
+    différentiable, physique des réacteurs, propagation des ondes.
+  \end{description}}
+
+\cventry{2004--2005}{Master Modélisation et Simulation}{INSTN}{Saclay}{}{}
+
+\section{Prix et distinctions}
+
+\cventry{2007}{\itshape Best student paper award}{conférence Mathematics \&
+  Computations}{}{}{%
+  Lauréat de l'un des 3 prix décernés par un jury de l'ANS (\textit{American
+    Nuclear Society}) parmi tous les étudiants participant à la conférence.%
+}
+
+\cventry{2007}{\itshape Best student award}{International Youth Conference in
+  Energetics (IYCE)}{}{}{%
+  Prix de la meilleure présentation à la conférence IYCE, dans la catégorie
+  ``Simulation''.%
+}
+
+\newpage
+
+\section{Compétences et sujets de recherche}
+
+\subsection{Communication et animation d'activités scientifiques}
+
+\cvitem{Encadrement \& Enseignement}{\vspace{-0.85em}
+  \begin{itemize}
+  \item Suivi et co-direction de quatre thèses avec divers partenaires : École
+    Polytechnique de Montréal, Imperial College, Université Pierre et Marie
+    Curie, CEA ;
+  \item Encadrement de 7 stagiaires ;
+  \item Enseignement académique en mathématiques appliquées (niveau L3 à M2) ;
+  \item Formation professionnelle : organisation et intervention dans plusieurs
+    écoles d'été.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\
+
+\cvitem{Communication scientifique}{\theBibIndex\ articles et présentations dans
+  des revues et conférences internationales, ainsi que \begin{itemize}
+  \item Relecture d'articles pour les revues \textit{Nuclear Science and
+      Engineering}, \textit{Annals of Nuclear Energy}, \textit{European Physical
+    Journal in Nuclear Sciences \& Technologies} ;
+  \item Membre du comité de programme des workshops \& conférences :
+    \begin{itemize}
+    \item \textit{Numerical Software Verification} (NSV 2017),
+    \item \textit{Euro-Par} 2019,
+    \item \textit{Numerical Reproducibility at Exascale} (NRE 2019) ;
+    \end{itemize}
+  \item \textit{Panelist} pour le workshop \textit{Numerical
+      Reproduciblity at Exascale} 2019.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\subsection{Développement de solveurs à haut rendement, Mathématiques
+  appliquées}
+\cvitem{Méthodes num.}{Méthode des caractéristiques, éléments finis ;}
+
+\cvitem{Langages}{\vspace{-0.85em}\begin{itemize}
+  \item[] \hspace{-1.2em}{\itshape(production)} C++, Julia, Python ;
+  \item[] \hspace{-1.2em}{\itshape(prototypage)} Matlab, Maxima (calcul formel) ;
+  \end{itemize}\vspace{-1em}\strut}
+
+\cvitem{Paradigmes}{Méta-programmation, \textit{multithreading}, vectorisation.}
+
+\subsection{Qualité numérique des codes}
+
+\cvitem{Arithmétique}{Arithmétiques flottante et stochastique, détection des
+  erreurs d'arrondi ;}
+
+\cvitem{Outils d'analyse}{Analyse des instabilités numériques :
+  \begin{itemize}
+  \item Utilisation de la bibliothèque \textsc{Cadna} (LIP6) ;
+  \item Développement de l'outil \verrou{} et application aux codes métier EDF
+    (Code\_Aster, Apogene) ;
+  \item Montage de l'ANR Interflop, regroupant 7 partenaires pour le
+    développement d'outils innovants pour la qualité numérique.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\subsection{Physique des Réacteurs : modélisation et simulation}
+\cvitem{Chaîne industrielle}{%
+  Développement dans la future chaîne de calcul des c{\oe}urs \textsc{Cocagne} :
+  \begin{itemize}
+  \item Solveurs d'évolution des concentrations isotopiques (modèle général,
+    modèle spécifique aux chaînes Xénon et Samarium),
+  \item Méthodes de reconstruction fine du flux pour la diffusion neutronique,
+  \item Fonctionnalités de \textit{rod cusping} pour les calculs
+    instationnaires en diffusion.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\cvitem{Schémas avancés}{%
+  Développement de solveurs pour l'équation de Boltzmann :
+  \begin{itemize}
+  \item Mise au point de la méthode d'accélération du solveur de transport
+    3D cartésien \textsc{Domino},
+  \item Développement du solveur de transport 3D en géométries non structurées
+    \textsc{Micado}.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\subsection{Gestion d'activités \& projets techniques}
+
+\cvitem{Schémas avancés en neutronique}{%
+  Responsable du lot ``Solveurs'' du projet (2017--2018) :
+  \begin{itemize}
+  \item Réalisation de la feuille de route de développement des solveurs de
+    neutronique pour la période 2019--2023 (800k€ sur 5~ans) ;
+  \item Coordination des plans de R\&D relatifs aux solveurs neutroniques avec
+    Framatome.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\cvitem{Performance et Qualité des Simulations}{%
+  Responsable du lot ``Sujets Exploratoires et Méthodes Avancées'' (2015--2019) :
+  \begin{itemize}
+  \item Organisation et suivi des activités du lot (2 thèses), en relation avec
+    les acteurs d'autres départements d'EDF.
+  \end{itemize}\vspace{-1em}\strut
+}
+
+\newpage
+
+\section{Développement logiciel}
+
+\subsection{Logiciels \textit{Open Source} \normalsize\normalfont(liste complète
+  disponible sur \texttt{http://github.com/ffevotte})}
+
+\vspace{0.5em}
+
+\newcommand{\project}[3]{\cvitem{#1\\[0.2em]
+    \footnotesize\color{gray}
+    #2%
+  }{%
+    #3
+  }}
+
+\newcommand{\OSproject}[5]{\project{#1}{%
+    #2\\%
+    \faStar~#3\quad\faCodeFork~#4}{%
+    #5
+  }}
+
+\OSproject{Verrou}{C (9k lignes)}{24}{7}{%
+  Outil de diagnostic \& déboguage des problèmes liés à l'arithmétique flottante
+  dans les codes de calcul scientifique.
+  \begin{itemize}
+  \item Co-développeur principal
+  \item Outil utilisé par de nombreux développeurs de codes : EDF, CEA, Thalès,
+    CNRS/IN2P3\ldots
+  \item \url{https://github.com/edf-hpc/verrou}
+  \end{itemize}
+}
+
+\OSproject{clang-tags}{C++ (4k lignes)}{104}{23}{%
+  Outil d'indexation de code source C / C++ pour les IDE.
+  \begin{itemize}
+  \item Développeur principal
+  \item \url{https://github.com/ffevotte/clang-tags}
+  \end{itemize}
+}
+
+\OSproject{AccurateArithmetic.jl}{Julia (2k lignes)}{25}{5}{\quad%
+  Implémentation performante d'algorithmes compensés vectorisés en langage Julia.
+  \begin{itemize}
+  \item Développeur principal
+  \item Performance comparable à OpenBLAS pour la somme et le produit scalaire
+    sur architectures AVX-2 \& AVX-512
+  \item \url{https://github.com/JuliaMath/AccurateArithmetic.jl}
+  \end{itemize}
+}
+
+% \OSproject{desktop-plus}{Lisp (1k lignes)}{48}{10}{%
+%   Extensions à la bibliothèque standard de gestion de sessions d'Emacs.
+%   \begin{itemize}
+%   \item Développeur principal
+%   \item \url{https://github.com/ffevotte/desktop-plus}
+%   \end{itemize}
+% }
+
+\OSproject{GFlops.jl}{Julia (1k lignes)}{35}{3}{%
+  Outil de benchmarking permettant de déterminer la performance absolue de codes Julia.
+  \begin{itemize}
+  \item Développeur principal
+  \item \url{https://github.com/triscale-innov/GFlops.jl}
+  \end{itemize}
+}
+
+\subsection{Logiciels propriétaires}
+
+\project{Micado}{C++ (11k lignes)}{%
+  Solveur pour l'équation de Boltzmann en géométries 3D prismatiques.
+  \begin{itemize}
+  \item Développeur principal : architecture, méthodes numériques et
+    implémentation
+  \item Méthode numérique à l'état de l'art pour les algorithmes de
+    \textit{splitting} 2D--1D
+  \item Parallélisme à 3 niveaux : mémoire distribuée (MPI) \& partagée (tbb),
+    SIMD (Eigen)
+  \end{itemize}
+}
+
+\project{Domino}{C++ (100k lignes)}{%
+  Solveur pour l'équation de Boltzmann en géométries cartésiennes, intégré dans
+  la plate-forme de neutronique \textsc{Cocagne}.
+  \begin{itemize}
+  \item Contributeur : méthodes numériques pour l'accélération
+  \item Mise au point du préconditionneur parallèle (mémoire distribuée)
+  \end{itemize}
+}
+
+\project{Diabolo}{C++ (100k lignes)}{%
+  Solveur pour l'équation de la diffusion en géométrie cartésiennes, intégré
+  dans la plate-forme de neutronique \textsc{Cocagne}.
+  \begin{itemize}
+  \item Contributeur : solveur instationnaire, évolutions du schéma de
+    discrétisation spatiale
+  \item Mise au point des méthodes de remaillage lors de changement de géométrie
+    au cours du temps
+  \item Post-traitement des éléments finis pour améliorer l'ordre de convergence
+    spatiale
+  \end{itemize}
+}
+
+\section{Encadrement, enseignement \& formation}
+
+\subsection{Enseignement académique}
+
+\cventry{depuis 2007}{ENSTA et Université Paris Saclay}{50h/an}{}{}{%
+  \begin{itemize}
+  \item \textit{Introduction à la discrétisation des EDP} :
+    1\textsuperscript{ère}~année~ENSTA, chargé de TD (resp: P. Joly) ;
+  \item \textit{La méthode des éléments finis} :
+    2\textsuperscript{ème}~année~ENSTA, chargé de TD (resp: S. Fliss) ;
+  \item \textit{Modélisation et simulation du transport de particules neutres} :
+    Master Analyse, Modélisation et \mbox{Simulation} (AMS), co-responsable avec
+    G. Samba (CEA);
+  \item Membre du conseil de perfectionnement de l'université Paris Saclay.
+  \end{itemize}
+}
+
+\subsection{Formation professionnelle}
+
+\cventry{2018}{Ecole d'été CEA--EDF--Inria}{40h}{}{}{%
+  Organisation d'une école d'été d'une semaine sur le thème de la qualité
+  numérique des codes :
+  \begin{itemize}
+  \item recrutement des formateurs ;
+  \item préparation des séances de Travaux Pratiques autour du logiciel
+    \textsc{Verrou} et des algorithmes compensés.
+  \end{itemize}
+}
+
+\cventry{2018}{Ecole Thématique de la Simulation Numérique}{12h}{}{}{%
+  Intervention lors d'une école co-organisée par le CEA/DAM et l'ENS Cachan
+  (CMLA) :
+  \begin{itemize}
+  \item cours magistral sur l'arithmétique stochastique pour vérifier la qualité
+    numérique des codes ;
+  \item animation des Travaux Pratiques autour du logiciel \textsc{Verrou}.
+  \end{itemize}
+}
+
+\cventry{2017}{Ecole d'été PRECIS {\footnotesize(Précision et REproductibilité
+    en Calcul Informatique et Scientifique)}}{3h}{}{}{%
+  Intervention lors d'une école d'été organisée par le groupe ``Calcul'' du CNRS
+  :
+  \begin{itemize}
+  \item présentation de l'arithmétique stochastique et du logiciel
+    \textit{Verrou},
+  \item travaux pratiques.
+  \end{itemize}
+}
+
+\subsection{Encadrement de doctorants}
+
+\cventry{Wesley Ford\\(2016--)}{\bfseries Vers des méthodes d'accélération
+  stables et efficaces en contextes parallèles appliquées à l'équation du
+  transport des neutrons}{}{}{}{%
+  \begin{itemize}
+  \item Directeur : Christophe Calvin (CEA, Maison de la Simulation).
+  \end{itemize}}
+
+\cventry{Romain Picot\\(2015--2018)}{\bfseries Vérification numérique de
+  logiciels de calculs industriels}{}{}{}{%
+  \begin{itemize}
+  \item Directrice : Fabienne Jézéquel (Université Pierre et Marie Curie, Paris 6).
+  \end{itemize}}
+
+\cventry{Rebecca Jeffers\\(2013--2016)}{\bfseries\itshape Goal Based Coupled
+  Adaptive Mesh Refinement (AMR) and angular adaptivity on Cartesian Meshes for
+  Modelling Neutron Transport in PWR Reactor Cores}{}{}{}{%
+  \begin{itemize}
+  \item Directeur : Matthew D. Eaton (Imperial College London).
+  \end{itemize}}
+
+\cventry{\hspace{-5em}Marc-André Lajoie\\(2011--2017)}{\bfseries Développement
+  d’un schéma de calcul prismatique généralisé parallèle en transport
+  déterministe hétérogène 3-D}{}{}{}{%
+  \begin{itemize}
+  \item Co-directeur : Guy Marleau (École Polytechnique de Montréal).
+  \end{itemize}}
+
+\subsection{Encadrement de stagiaires}
+
+\cventry{Morgane Steins\\(2018)}{Amélioration de la convergence spatiale des
+  éléments finis en neutronique}{}{}{}{%
+  \begin{itemize}
+  \item Utilisation de techniques d'analyse d'erreur \textit{a posteriori} pour
+    améliorer la convergence spatiale des calculs en éléments finis de
+    Raviart-Thomas ;
+  \item Application à la neutronique : amélioration du calcul des intégrales du
+    flux cellule par cellule pour la reconstruction fine de puissance ;
+  \item Expérimentation numérique en langage Julia.
+  \end{itemize}}
+
+\cventry{Mehdi Ouafi\\(2017)}{Conditionnement des problèmes d'optimisation de la
+  production hydraulique}{}{}{}{%
+  \begin{itemize}
+  \item Etude des liens entre conditionnement des matrices de contraintes et
+    performance de la résolution des problèmes d'optimisation.
+  \end{itemize}}
+
+\cventry{Louis Denoix\\(2017)}{Stabilité numérique des algorithmes
+  d'optimisation}{}{}{}{%
+  \begin{itemize}
+  \item Analyse de la qualité numérique du solveur d'optimisation SoPlex à
+    l'aide de l'outil Verrou.
+  \end{itemize}}
+
+\cventry{Chou Xiaochen\\(2016)}{Gestion des erreurs numériques dans
+  les problèmes de planification hydraulique}{}{}{}{%
+  \begin{itemize}
+  \item Analyse de l'impact de l'arithmétique flottante sur la faisabilité et la
+    performance de résolution des problèmes de planification de la production
+    hydraulique.
+  \end{itemize}}
+
+\cventry{Guy Augarde\\(2015)}{Exploration du potentiel du langage Julia pour le
+  calcul scientifique}{}{}{}{%
+  \begin{itemize}
+  \item Développement d'une bibliothèque d'algèbre linéaire par blocs
+    hiérarchiques en langage Julia.
+  \end{itemize}}
+
+\cventry{Salli Moustafa\\(2013)}{Vectorisation d'un algorithme de transport
+  neutronique en géométries prismatiques}{}{}{}{%
+  \begin{itemize}
+  \item Amélioration des performances du solveur en utilisant les unités de
+    calcul SSE / AVX,
+  \item Utilisation de la bibliothèque C++ Eigen pour le développement de code
+    vectorisé performant et portable.
+  \end{itemize}}
+
+\cventry{Ulrick Séverin\\(2012)}{Intégration fine du flux dans la plate-forme
+  \textsc{Cocagne}}{}{}{}{%
+  \begin{itemize}
+  \item Mise au point et application d'une méthodologie de validation des
+    techniques de reconstruction fine du flux dans la plate-forme de neutronique
+    \textsc{Cocagne}.
+  \end{itemize}}
+
+\newpage
+
+\section{Publications}
+
+% \input{biblio}
+\bibliographystyle{moderncv}
+\newcommand{\bibindex}{\theBibIndex\addtocounter{BibIndex}{-1}\stepcounter{NbRefs}}
+% \bibliography{../publications/biblio}
+
+\subsection{\itshape Preprints}\vspace{0.5em}
+\input{biblio-unpublished.bbl}
+
+\subsection{Journaux}\vspace{0.5em}
+\input{biblio-article.bbl}
+
+\subsection{Conférences}\vspace{0.5em}
+\input{biblio-inproceedings.bbl}
+
+\subsection{Thèse}\vspace{0.5em}
+\input{biblio-phdthesis.bbl}
+
+\end{document}
